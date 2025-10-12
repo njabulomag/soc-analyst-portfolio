@@ -1,6 +1,7 @@
 # SOC-Analyst
 
-![Uploading image.png…]()
+<img width="800" height="406" alt="image" src="https://github.com/user-attachments/assets/09646af1-3692-49c8-8e92-74459241061c" />
+
 
 
 
