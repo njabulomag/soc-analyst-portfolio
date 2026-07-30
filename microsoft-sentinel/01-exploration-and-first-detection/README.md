@@ -150,7 +150,7 @@ The CloudTrail logs showed normal cloud activity, including AWS console logins, 
 
 #### Timeline Visualization
 
-![Cross-Source Timeline](screenshots/07-cross-source-timeline-overview.png.png)
+![Cross-Source Timeline](screenshots/07-cross-source-timeline.png.png)
 
 #### Correlated Events
 
