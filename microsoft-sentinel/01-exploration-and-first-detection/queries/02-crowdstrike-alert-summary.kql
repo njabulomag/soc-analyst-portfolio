@@ -1,0 +1,3 @@
+CrowdStrikeAlerts
+| summarize AlertCount = count() by Name, SeverityName, Tactic
+| sort by AlertCount desc
