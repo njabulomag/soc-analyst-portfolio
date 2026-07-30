@@ -138,6 +138,32 @@ The identity logs showed normal authentication activity, including successful us
 
 The CloudTrail logs showed normal cloud activity, including AWS console logins, S3 object access, EC2 instance inspection, and security group queries. No evidence of suspicious administrative actions, such as creating users or disabling logging, was observed during this stage of the investigation.
 
+---
+
+## ✅ Step 7 – Cross-Source Investigation Timeline
+
+### Query
+
+[07-cross-source-timeline.kql](queries/07-cross-source-timeline.kql)
+
+### Evidence
+
+#### Timeline Visualization
+
+![Cross-Source Timeline](screenshots/07-cross-source-timeline-overview.png.png)
+
+#### Correlated Events
+
+![Cross-Source Results](screenshots/07-cross-source-timeline-results.png.png)
+
+### Findings
+
+A cross-source KQL query was used to correlate events from CrowdStrike, Palo Alto, Okta, and AWS CloudTrail into a unified timeline.
+
+For the selected time range, the returned events consisted primarily of Okta identity activity, including user authentication events and MFA-related operations. No matching high-severity endpoint or cloud administrative events were returned by the query during this execution.
+
+This exercise demonstrates how Microsoft Sentinel can combine telemetry from multiple security platforms into a single investigation timeline.
+
 # Skills Demonstrated
 
 - Microsoft Sentinel
