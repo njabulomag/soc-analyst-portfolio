@@ -109,6 +109,21 @@ The high number of targeted ports is consistent with reconnaissance or port-scan
 
 ---
 
+## ✅ Step 5 – Okta Identity Overview
+
+### Query
+
+[05-okta-identity-overview.kql](queries/05-okta-identity-overview.kql)
+
+### Evidence
+
+![Okta Identity](screenshots/05-okta-identity-overview.png.png)
+
+### Findings
+
+The identity logs showed normal authentication activity, including successful user authentication, OAuth token generation, session creation, and policy evaluations. No widespread authentication failures or suspicious login patterns were identified during this stage of the investigation.
+---
+
 # Skills Demonstrated
 
 - Microsoft Sentinel
