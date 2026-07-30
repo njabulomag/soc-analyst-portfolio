@@ -7,6 +7,7 @@
 In this project, I explored the Microsoft Sentinel Training Lab to understand the available security telemetry and practice threat hunting using Kusto Query Language (KQL).
 
 The objective was to:
+
 - Discover available data sources.
 - Analyze endpoint, network, identity, and cloud telemetry.
 - Build a custom detection rule based on suspicious activity.
@@ -27,7 +28,7 @@ Identify the available data tables in the Microsoft Sentinel environment.
 
 ### Evidence
 
-![Discover Tables](screenshots/01-discover-tables-results.png)
+![Discover Tables](screenshots/01-discover-tables-results.png.png)
 
 ### Findings
 
@@ -43,7 +44,7 @@ The environment contained multiple security data sources, including Windows secu
 
 ### Evidence
 
-![CrowdStrike Alerts](screenshots/02-crowdstrike-alert-summary.png)
+![CrowdStrike Alerts](screenshots/02-crowdstrike-alert-summary.png.png)
 
 ### Findings
 
@@ -53,7 +54,15 @@ Critical endpoint alerts included:
 - Credential Dumping
 - C2 Beacon Detection
 
-The alerts mapped to multiple MITRE ATT&CK tactics, including Execution, Credential Access, Defense Evasion, Collection, and Command and Control. The diversity of tactics suggests a multi-stage attack requiring further investigation.
+The alerts mapped to multiple MITRE ATT&CK tactics, including:
+
+- Execution
+- Credential Access
+- Defense Evasion
+- Collection
+- Command and Control
+
+The diversity of tactics suggests a multi-stage attack requiring further investigation.
 
 ---
 
@@ -65,7 +74,7 @@ The alerts mapped to multiple MITRE ATT&CK tactics, including Execution, Credent
 
 ### Evidence
 
-![Palo Alto Overview](screenshots/03-palo-alto-traffic-overview.png)
+![Palo Alto Overview](screenshots/03-palo-alto-traffic-overview.png.png)
 
 ### Findings
 
@@ -75,11 +84,11 @@ The firewall recorded:
 - 23 completed sessions
 - 1 spyware-related event
 
-Most firewall activity consisted of dropped connections, indicating that the firewall was actively blocking network traffic.
+Most firewall activity consisted of dropped connections, indicating that the firewall was actively blocking suspicious network traffic.
 
 ---
 
-## ✅ Step 4 – Investigate Blocked Traffic
+## ✅ Step 4 – Investigate Blocked Firewall Traffic
 
 ### Query
 
@@ -87,17 +96,20 @@ Most firewall activity consisted of dropped connections, indicating that the fir
 
 ### Evidence
 
-![Blocked Traffic](screenshots/04-blocked-firewall-traffic.png)
+![Blocked Traffic](screenshots/04-blocked-firewall-traffic.png.png)
 
 ### Findings
 
-The investigation identified source IP **10.0.1.50** as responsible for **125 blocked connections** targeting **124 unique destination ports**.
+The investigation identified source IP **10.0.1.50** as responsible for:
 
-This behavior is consistent with broad reconnaissance or port-scanning activity and should be investigated further.
+- **125 blocked connections**
+- **124 unique destination ports**
+
+The high number of targeted ports is consistent with reconnaissance or port-scanning behavior and warrants further investigation.
 
 ---
 
-## Skills Demonstrated
+# Skills Demonstrated
 
 - Microsoft Sentinel
 - Microsoft Defender XDR
@@ -106,4 +118,6 @@ This behavior is consistent with broad reconnaissance or port-scanning activity 
 - Detection Engineering
 - Network Traffic Analysis
 - Endpoint Security Analysis
-- MITRE ATT&CK
+- MITRE ATT&CK Framework
+
+
