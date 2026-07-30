@@ -1,0 +1,4 @@
+AWSCloudTrail
+| summarize EventCount = count() by EventName, EventSource
+| sort by EventCount desc
+| take 15
