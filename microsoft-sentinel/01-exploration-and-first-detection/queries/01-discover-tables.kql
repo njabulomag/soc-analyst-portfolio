@@ -1,0 +1,3 @@
+search *
+| summarize EventCount = count() by $table
+| sort by EventCount desc
