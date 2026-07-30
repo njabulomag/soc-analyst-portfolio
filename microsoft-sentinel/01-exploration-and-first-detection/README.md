@@ -124,6 +124,20 @@ The high number of targeted ports is consistent with reconnaissance or port-scan
 The identity logs showed normal authentication activity, including successful user authentication, OAuth token generation, session creation, and policy evaluations. No widespread authentication failures or suspicious login patterns were identified during this stage of the investigation.
 ---
 
+## ✅ Step 6 – AWS CloudTrail Overview
+
+### Query
+
+[06-aws-cloudtrail-overview.kql](queries/06-aws-cloudtrail-overview.kql)
+
+### Evidence
+
+![AWS CloudTrail](screenshots/06-aws-cloudtrail-overview.png.png)
+
+### Findings
+
+The CloudTrail logs showed normal cloud activity, including AWS console logins, S3 object access, EC2 instance inspection, and security group queries. No evidence of suspicious administrative actions, such as creating users or disabling logging, was observed during this stage of the investigation.
+
 # Skills Demonstrated
 
 - Microsoft Sentinel
