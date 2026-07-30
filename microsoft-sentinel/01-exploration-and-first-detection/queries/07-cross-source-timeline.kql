@@ -1,0 +1,45 @@
+union
+    (
+        CrowdStrikeAlerts
+        | where SeverityName in ("Critical", "High")
+        | project
+            TimeGenerated,
+            Source = "CrowdStrike",
+            Activity = Name,
+            Severity = SeverityName
+    ),
+    (
+        CommonSecurityLog
+        | where DeviceVendor == "Palo Alto Networks"
+        | where DeviceEventClassID == "THREAT"
+        | project
+            TimeGenerated,
+            Source = "Palo Alto",
+            Activity = Activity,
+            Severity = LogSeverity
+    ),
+    (
+        OktaV2_CL
+        | where EventOriginalType has "mfa"
+            or EventOriginalType has "deactivate"
+        | project
+            TimeGenerated,
+            Source = "Okta",
+            Activity = EventOriginalType,
+            Severity = EventSeverity
+    ),
+    (
+        AWSCloudTrail
+        | where EventName in (
+            "CreateUser",
+            "AttachUserPolicy",
+            "CreateAccessKey",
+            "StopLogging"
+        )
+        | project
+            TimeGenerated,
+            Source = "AWS",
+            Activity = EventName,
+            Severity = "High"
+    )
+| sort by TimeGenerated asc
