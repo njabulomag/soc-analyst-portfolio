@@ -1,0 +1,3 @@
+OktaV2_CL
+| summarize EventCount = count() by EventOriginalType, OriginalOutcomeResult
+| sort by EventCount desc
