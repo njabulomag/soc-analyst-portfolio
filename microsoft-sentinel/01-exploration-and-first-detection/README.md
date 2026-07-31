@@ -164,6 +164,23 @@ For the selected time range, the returned events consisted primarily of Okta ide
 
 This exercise demonstrates how Microsoft Sentinel can combine telemetry from multiple security platforms into a single investigation timeline.
 
+---
+
+## ✅ Step 8 – Multi-Tactic Compromise Detection
+
+### Query
+
+[08-multi-tactic-compromise-detection.kql](queries/08-multi-tactic-compromise-detection.kql)
+
+### Evidence
+
+![Detection Query](screenshots/08-multi-tactic-compromise-detection-query.png.png)
+
+### Findings
+
+A custom KQL detection query was developed to identify endpoints experiencing high or critical CrowdStrike alerts across three or more MITRE ATT&CK tactics within a four-hour period.
+
+The query executed successfully but returned no matching devices during the selected time window. This indicates that no endpoints met the defined detection threshold at the time of execution.
 # Skills Demonstrated
 
 - Microsoft Sentinel
