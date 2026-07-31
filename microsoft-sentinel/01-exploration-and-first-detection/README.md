@@ -181,6 +181,44 @@ This exercise demonstrates how Microsoft Sentinel can combine telemetry from mul
 A custom KQL detection query was developed to identify endpoints experiencing high or critical CrowdStrike alerts across three or more MITRE ATT&CK tactics within a four-hour period.
 
 The query executed successfully but returned no matching devices during the selected time window. This indicates that no endpoints met the defined detection threshold at the time of execution.
+
+---
+
+## ✅ Step 9 – Create and Verify the Detection Rule
+
+### Query
+
+[08-multi-tactic-compromise-detection.kql](queries/08-multi-tactic-compromise-detection.kql)
+
+### Evidence
+
+#### Alert Details
+
+![Alert Details](screenshots/09-alert-details.png.png)
+
+#### Entity Mapping
+
+![Entity Mapping](screenshots/09-entity-mapping.png.png)
+
+#### Actions
+
+![Actions Page](screenshots/09-actions-page.png.png)
+
+#### Review
+
+![Review Page](screenshots/09-review-page.png.png)
+
+#### Detection Rule Created
+
+![Detection Rule Created](screenshots/09-detection-rule-created.png.png)
+
+### Findings
+
+A scheduled custom detection rule was created using the validated KQL query developed in Step 8. The rule runs every hour, evaluates the previous four hours of endpoint activity, and identifies devices with high or critical CrowdStrike alerts spanning three or more MITRE ATT&CK tactics.
+
+Entity mapping was configured to associate the `DeviceName` field with the affected device, improving alert context and incident correlation within Microsoft Defender.
+
+
 # Skills Demonstrated
 
 - Microsoft Sentinel
