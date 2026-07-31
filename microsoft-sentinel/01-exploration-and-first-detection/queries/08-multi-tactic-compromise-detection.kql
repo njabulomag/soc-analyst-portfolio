@@ -1,0 +1,23 @@
+CrowdStrikeAlerts
+| where TimeGenerated > ago(4h)
+| where SeverityName in ("Critical", "High")
+| extend DeviceName = tostring(split(DisplayName, " on ")[-1])
+| summarize
+    TacticCount = dcount(Tactic),
+    Tactics = make_set(Tactic),
+    AlertNames = make_set(Name, 10),
+    AlertCount = count(),
+    FirstSeen = min(TimeGenerated),
+    LastSeen = max(TimeGenerated)
+    by DeviceName, AgentId
+| where TacticCount >= 3
+| project
+    TimeGenerated = FirstSeen,
+    DeviceName,
+    TacticCount,
+    Tactics,
+    AlertNames,
+    AlertCount,
+    FirstSeen,
+    LastSeen,
+    ReportId = tostring(hash_sha256(strcat(DeviceName, tostring(FirstSeen))))
