@@ -1,1 +1,2 @@
-
+ThreatIntelIndicators
+| sort by TimeGenerated desc
