@@ -8,6 +8,22 @@ The purpose of this exercise is to investigate security incidents, correlate evi
 
 ---
 
+# Step 1 – View Threat Intelligence Indicators
+
+## Query
+
+[01-view-threat-intelligence-indicators.kql](queries/01-view-threat-intelligence-indicators.kql)
+
+## Evidence
+
+![Threat Intelligence Indicators](screenshots/01-threat-intelligence-indicators.png.png)
+
+## Findings
+
+A KQL query was executed against the **ThreatIntelIndicators** table to verify the availability of Threat Intelligence Indicators (IOCs).
+
+The query completed successfully but returned no records, indicating that no threat intelligence indicators were currently present in the lab environment. This step confirmed that the table is available and ready for future threat intelligence investigations.
+
 ## Skills Demonstrated
 
 - Microsoft Sentinel
