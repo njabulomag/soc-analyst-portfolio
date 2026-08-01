@@ -110,6 +110,24 @@ A KQL summary query was executed against the **ThreatIntelIndicators** table to 
 
 The query returned **0 total indicators**, **0 active indicators**, and **0 revoked indicators**, confirming that the table is available and functioning correctly but currently contains no threat intelligence data in the lab environment.
 
+---
+
+# Step 6 – Review Active Threat Intelligence Indicators
+
+## Query
+
+[06-active-threat-intelligence-indicators.kql](queries/06-active-threat-intelligence-indicators.kql)
+
+## Evidence
+
+![Active Threat Intelligence Indicators](screenshots/06-active-threat-intelligence-indicators.png.png)
+
+## Findings
+
+A KQL query was executed to retrieve active Threat Intelligence Indicators.
+
+The query completed successfully but returned no results because no active indicators were available in the lab environment. This demonstrates how analysts can filter and review active indicators when threat intelligence data is available.
+
 ## Skills Demonstrated
 
 - Microsoft Sentinel
