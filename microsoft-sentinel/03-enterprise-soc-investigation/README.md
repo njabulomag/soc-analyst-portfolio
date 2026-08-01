@@ -1,20 +1,21 @@
-# Microsoft Sentinel Project 03 – Multi-Source Security Investigation
+# Microsoft Sentinel Project 03 – Enterprise SOC Investigation
 
 ## Project Overview
 
-This project documents a real-world Security Operations Center (SOC) investigation using Microsoft Sentinel and Microsoft Defender XDR.
+This project demonstrates a realistic Security Operations Center (SOC) investigation using Microsoft Sentinel and Microsoft Defender XDR.
 
-The investigation correlates endpoint, firewall, identity, and cloud telemetry to identify suspicious activity across multiple security platforms.
+The investigation validates enterprise security data sources and correlates endpoint, identity, firewall, and operating system telemetry to identify suspicious activity using Kusto Query Language (KQL).
 
 ---
 
 ## Objectives
 
-- Validate security events across multiple log sources.
-- Correlate endpoint, network, identity, and cloud telemetry.
-- Develop KQL hunting queries.
-- Document findings using screenshots and investigation notes.
-- Demonstrate practical SOC investigation techniques.
+- Validate connected security data sources.
+- Investigate endpoint security alerts.
+- Analyze firewall activity.
+- Review identity authentication events.
+- Correlate events across multiple security products.
+- Document findings using KQL, screenshots, and investigation notes.
 
 ---
 
@@ -24,49 +25,93 @@ The investigation correlates endpoint, firewall, identity, and cloud telemetry t
 - Microsoft Defender XDR
 - Kusto Query Language (KQL)
 - Threat Hunting
+- SOC Investigation
 - Event Correlation
-- Incident Investigation
+- Detection Engineering
+- Microsoft Entra ID
 - CrowdStrike Falcon
-- Palo Alto Networks
-- Okta
-- AWS CloudTrail
+- Palo Alto Firewall
+- Okta Identity
+- Windows Security Monitoring
 
 ---
 
 ## Data Sources
 
 - CrowdStrike Alerts
-- Palo Alto Firewall Logs
-- Okta Identity Logs
-- AWS CloudTrail
+- Microsoft Entra ID
+- Okta
+- Palo Alto Firewall (CommonSecurityLog)
+- Windows Security Events
 
 ---
 
 ## Project Structure
 
-```
-03-multi-source-security-investigation/
+```text
+03-enterprise-soc-investigation/
 
+├── README.md
 ├── queries/
 ├── screenshots/
-├── notes/
-└── README.md
+└── notes/
 ```
 
 ---
 
-## Investigation Steps
+# Step 1 – Validate Connected Data Sources
 
-- Step 1 – Validate Data Sources
-- Step 2 – Endpoint Investigation
-- Step 3 – Firewall Investigation
-- Step 4 – Identity Investigation
-- Step 5 – Cloud Investigation
-- Step 6 – Cross-Source Correlation
-- Step 7 – Investigation Summary
+## Query
+
+[01-validate-data-sources.kql](queries/01-validate-data-sources.kql)
+
+## Evidence
+
+![Connected Data Sources](screenshots/01-validate-data-sources.png.png)
+
+## Findings
+
+A KQL query was executed to validate that Microsoft Sentinel was receiving telemetry from multiple enterprise security platforms.
+
+The investigation confirmed active telemetry from:
+
+- CrowdStrike Alerts (53 records)
+- Microsoft Entra ID (3,663 records)
+- Okta (36 records)
+- Palo Alto Firewall (149 records)
+- Windows Security Events (23,864 records)
+
+This confirmed that the environment contains sufficient endpoint, identity, firewall, and operating system telemetry to perform enterprise-scale SOC investigations.
+
+---
+
+## Upcoming Investigation Steps
+
+- Step 2 – CrowdStrike Endpoint Investigation
+- Step 3 – Palo Alto Firewall Investigation
+- Step 4 – Identity Investigation (Okta & Microsoft Entra ID)
+- Step 5 – Windows Security Investigation
+- Step 6 – Cross-Source Event Correlation
+- Step 7 – Enterprise SOC Investigation Summary
+
+---
+
+## Repository Contents
+
+| Folder | Description |
+|---------|-------------|
+| queries | KQL queries used during the investigation |
+| screenshots | Evidence captured from Microsoft Sentinel |
+| notes | Detailed investigation notes |
+| README.md | Project documentation |
 
 ---
 
 ## Project Status
 
 🚧 In Progress
+
+
+
+
+
