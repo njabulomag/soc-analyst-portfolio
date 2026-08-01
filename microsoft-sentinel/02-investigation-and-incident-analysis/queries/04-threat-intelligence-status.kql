@@ -1,0 +1,5 @@
+ThreatIntelIndicators
+| summarize
+    TotalIndicators = count(),
+    ActiveIndicators = countif(IsActive == true),
+    RevokedIndicators = countif(Revoked == true)
