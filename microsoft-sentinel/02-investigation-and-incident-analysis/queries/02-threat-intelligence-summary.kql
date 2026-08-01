@@ -1,5 +1,2 @@
 ThreatIntelIndicators
-| summarize
-    TotalIndicators = count(),
-    ActiveIndicators = countif(Active == true),
-    IndicatorTypes = dcount(IndicatorType)
+| count
