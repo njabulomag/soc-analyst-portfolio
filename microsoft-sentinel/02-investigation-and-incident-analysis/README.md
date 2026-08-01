@@ -128,6 +128,24 @@ A KQL query was executed to retrieve active Threat Intelligence Indicators.
 
 The query completed successfully but returned no results because no active indicators were available in the lab environment. This demonstrates how analysts can filter and review active indicators when threat intelligence data is available.
 
+---
+
+# Project Summary
+
+This project focused on investigating Microsoft Defender Threat Intelligence data using Microsoft Sentinel and Advanced Hunting.
+
+The investigation confirmed that the **ThreatIntelIndicators** table was available and successfully queried. Although the training environment did not contain any threat intelligence indicators during the investigation period, the exercise demonstrated the process of validating data sources, exploring table schemas, and developing KQL queries for future threat intelligence investigations.
+
+## Skills Demonstrated
+
+- Microsoft Sentinel
+- Microsoft Defender XDR
+- Advanced Hunting
+- Kusto Query Language (KQL)
+- Threat Intelligence
+- Security Operations (SOC)
+- Technical Documentation
+
 ## Skills Demonstrated
 
 - Microsoft Sentinel
