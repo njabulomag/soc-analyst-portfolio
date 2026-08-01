@@ -1,0 +1,9 @@
+CrowdStrikeAlerts
+| project
+    TimeGenerated,
+    Name,
+    SeverityName,
+    Tactic,
+    Technique,
+    DisplayName
+| order by TimeGenerated desc
