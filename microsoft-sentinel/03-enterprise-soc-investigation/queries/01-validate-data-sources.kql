@@ -1,1 +1,28 @@
-
+union isfuzzy=true
+(
+    CrowdStrikeAlerts
+    | summarize Records = count()
+    | extend Source = "CrowdStrike Alerts"
+),
+(
+    CommonSecurityLog
+    | summarize Records = count()
+    | extend Source = "Palo Alto Firewall"
+),
+(
+    OktaV2_CL
+    | summarize Records = count()
+    | extend Source = "Okta"
+),
+(
+    EntraIdSignInEvents
+    | summarize Records = count()
+    | extend Source = "Microsoft Entra ID"
+),
+(
+    SecurityEvent
+    | summarize Records = count()
+    | extend Source = "Windows Security"
+)
+| project Source, Records
+| order by Source asc
