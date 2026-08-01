@@ -73,6 +73,25 @@ This step confirmed that the Microsoft Defender Threat Intelligence schema in th
 A KQL count query was executed against the **ThreatIntelIndicators** table to determine whether any threat intelligence indicators were present.
 
 The query completed successfully and returned a count of **0**, confirming that no indicators were available in the lab environment during this investigation. This verified that the table is accessible and ready for future threat intelligence data.
+
+---
+
+# Step 4 – Threat Intelligence Status
+
+## Query
+
+[04-threat-intelligence-status.kql](queries/04-threat-intelligence-status.kql)
+
+## Evidence
+
+![Threat Intelligence Status](screenshots/04-threat-intelligence-status.png.png)
+
+## Findings
+
+A KQL summary query was executed against the **ThreatIntelIndicators** table to review the current status of threat intelligence indicators.
+
+The query returned **0 total indicators**, **0 active indicators**, and **0 revoked indicators**, confirming that the table is available and functioning correctly but currently contains no threat intelligence data in the lab environment.
+
 ## Skills Demonstrated
 
 - Microsoft Sentinel
