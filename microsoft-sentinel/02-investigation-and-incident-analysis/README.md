@@ -86,6 +86,24 @@ The query completed successfully and returned a count of **0**, confirming that 
 
 ![Threat Intelligence Status](screenshots/04-threat-intelligence-status.png.png)
 
+---
+
+# Step 5 – Review Threat Intelligence Indicator Types
+
+## Query
+
+[05-threat-intelligence-indicator-types.kql](queries/05-threat-intelligence-indicator-types.kql)
+
+## Evidence
+
+![Threat Intelligence Indicator Types](screenshots/05-threat-intelligence-indicator-types.png.png)
+
+## Findings
+
+A KQL query was executed to summarize Threat Intelligence Indicators by their **Type**.
+
+The query completed successfully but returned no results because the lab environment currently contains no Threat Intelligence Indicators. This step demonstrates how indicators can be categorized by type when threat intelligence data is available.
+
 ## Findings
 
 A KQL summary query was executed against the **ThreatIntelIndicators** table to review the current status of threat intelligence indicators.
