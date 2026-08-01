@@ -1,0 +1,9 @@
+ThreatIntelIndicators
+| where IsActive == true
+| project
+    TimeGenerated,
+    Type,
+    ObservableValue,
+    Confidence,
+    ValidUntil
+| order by TimeGenerated desc
