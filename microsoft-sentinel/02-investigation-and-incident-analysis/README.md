@@ -36,6 +36,38 @@ The query completed successfully but returned no records, indicating that no thr
 
 ![Threat Intelligence Summary](screenshots/02-threat-intelligence-summary.png.png)
 
+---
+
+# Step 3 – Explore the Threat Intelligence Schema
+
+## Query
+
+[03-threat-intelligence-schema.kql](queries/03-threat-intelligence-schema.kql)
+
+## Evidence
+
+![Threat Intelligence Schema](screenshots/03-threat-intelligence-schema.png.png)
+
+## Findings
+
+The `getschema` operator was used to inspect the structure of the **ThreatIntelIndicators** table.
+
+The query identified 23 available columns, including:
+
+- TimeGenerated
+- Id
+- IsActive
+- Revoked
+- ValidFrom
+- ValidUntil
+- Confidence
+- Pattern
+- ObservableKey
+- ObservableValue
+- Type
+
+This step confirmed that the Microsoft Defender Threat Intelligence schema in this lab differs slightly from the original Microsoft training documentation. Identifying the available fields ensures future KQL queries use the correct column names for this environment.
+
 ## Findings
 
 A KQL count query was executed against the **ThreatIntelIndicators** table to determine whether any threat intelligence indicators were present.
