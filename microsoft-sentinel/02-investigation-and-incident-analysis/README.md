@@ -24,6 +24,23 @@ A KQL query was executed against the **ThreatIntelIndicators** table to verify t
 
 The query completed successfully but returned no records, indicating that no threat intelligence indicators were currently present in the lab environment. This step confirmed that the table is available and ready for future threat intelligence investigations.
 
+---
+
+# Step 2 – Threat Intelligence Summary
+
+## Query
+
+[02-threat-intelligence-summary.kql](queries/02-threat-intelligence-summary.kql)
+
+## Evidence
+
+![Threat Intelligence Summary](screenshots/02-threat-intelligence-summary.png.png)
+
+## Findings
+
+A KQL count query was executed against the **ThreatIntelIndicators** table to determine whether any threat intelligence indicators were present.
+
+The query completed successfully and returned a count of **0**, confirming that no indicators were available in the lab environment during this investigation. This verified that the table is accessible and ready for future threat intelligence data.
 ## Skills Demonstrated
 
 - Microsoft Sentinel
