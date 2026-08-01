@@ -1,0 +1,3 @@
+ThreatIntelIndicators
+| summarize Count = count() by Type
+| order by Count desc
