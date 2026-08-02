@@ -136,25 +136,35 @@ The investigation identified **125 denied connections**, **23 allowed connection
 
 ---
 
+---
+
 # Step 4 – Microsoft Entra ID Application Sign-in Overview
 
 ## Objective
 
-Analyze Microsoft Entra ID authentication logs to determine which cloud applications are accessed most frequently and establish a baseline of normal application usage.
+Analyze Microsoft Entra ID authentication logs to identify the cloud applications users access most frequently and establish a baseline of normal sign-in activity.
 
 ## Query
 
 [04-identity-application-overview.kql](queries/04-identity-application-overview.kql)
 
+## Query
+
+```kql
+EntraIdSignInEvents
+| summarize SignInCount = count() by Application
+| order by SignInCount desc
+```
+
 ## Evidence
 
 ### Query Execution
 
-![Entra ID Application Query](screenshots/04-entra-id-application-query.png)
+![Entra ID Application Query](screenshots/04-entra-id-application-query.png.png)
 
 ### Query Results
 
-![Entra ID Application Results](screenshots/04-entra-id-application-results.png)
+![Entra ID Application Results](screenshots/04-entra-id-application-results.png.png)
 
 ## Findings
 
@@ -170,12 +180,34 @@ The investigation analyzed **3,903 sign-in events** and identified the following
 | Microsoft Threat Protection | 59 |
 | Microsoft Exchange | 58 |
 | Azure Portal | 58 |
+| Security Copilot API | 50 |
+| Microsoft Cloud App Security | 25 |
+| Microsoft Azure Storage | 13 |
+| ADIbizaUX | 13 |
 
-The results provide a baseline of normal authentication activity within the Microsoft cloud environment.
+The results establish a baseline of normal authentication activity across the Microsoft cloud environment.
 
-Applications such as **Azure Portal** and **Microsoft Exchange** are particularly important because they provide administrative and messaging capabilities. Monitoring authentication activity for these services helps SOC analysts detect unauthorized access, compromised accounts, and unusual administrative behavior.
+Applications such as **Microsoft 365 Security**, **Microsoft Defender**, and **Windows Defender** generated the highest number of authentication events, indicating regular usage by security personnel and integrated Microsoft services.
 
-This investigation demonstrates how Microsoft Sentinel can summarize large volumes of authentication logs into actionable information, enabling analysts to quickly understand user activity and identify areas requiring further investigation.
+Administrative services such as **Azure Portal** and **Microsoft Exchange** are particularly important because they provide access to cloud administration and email services. Monitoring authentication activity for these applications helps SOC analysts identify suspicious access patterns, compromised accounts, or unauthorized administrative activity.
+
+This investigation demonstrates how Microsoft Sentinel can summarize thousands of authentication events into meaningful insights that help analysts understand user behavior and quickly identify areas requiring further investigation.
+
+## Skills Demonstrated
+
+- Microsoft Sentinel
+- Microsoft Entra ID
+- Identity Monitoring
+- Authentication Analysis
+- Cloud Security
+- Kusto Query Language (KQL)
+- SOC Investigation
+
+## Key Learning
+
+This investigation introduced the use of the **summarize** operator to aggregate authentication logs by application.
+
+Rather than reviewing thousands of individual sign-in events, SOC analysts first establish a baseline of normal application usage. This makes it easier to identify unusual authentication patterns, unexpected application access, and potential indicators of account compromise.
 
 ## Skills Demonstrated
 
