@@ -1,0 +1,3 @@
+CommonSecurityLog
+| summarize Events = count() by DeviceAction
+| order by Events desc
