@@ -213,7 +213,7 @@ Review Microsoft Entra ID authentication logs to determine whether any sign-ins 
 
 ## Evidence
 
-![Risky Sign-ins Overview](screenshots/05-risky-signins-overview.png)
+![Risky Sign-ins Overview](screenshots/05-risky-signins-overview.png.png)
 
 ## Findings
 
