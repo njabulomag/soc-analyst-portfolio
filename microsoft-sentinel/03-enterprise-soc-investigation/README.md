@@ -225,6 +225,46 @@ This indicates that Microsoft Entra ID did not identify any risky authentication
 
 Although no suspicious sign-ins were detected, this investigation demonstrates how Microsoft Sentinel can be used to continuously monitor identity risk and establish a baseline of normal authentication activity.
 
+---
+
+# Step 6 – Geographic Sign-in Investigation
+
+## Objective
+
+Analyze Microsoft Entra ID authentication logs to identify the countries from which users are signing in and establish a geographic baseline of normal authentication activity.
+
+## Query
+
+[06-signins-by-country.kql](queries/06-signins-by-country.kql)
+
+## Evidence
+
+### Query Execution
+
+![Sign-ins by Country Query](screenshots/06-signins-by-country-query.png.pgn)
+
+## Findings
+
+A KQL query summarized Microsoft Entra ID authentication events by country.
+
+The investigation analyzed **3,953 sign-in events**, and all authentication activity originated from **South Africa (ZA)**.
+
+| Country | Sign-ins |
+|---------|---------:|
+| ZA (South Africa) | 3953 |
+
+The results establish a geographic baseline of normal authentication activity. No sign-ins from foreign countries were identified during the selected period.
+
+Establishing a geographic baseline enables SOC analysts to quickly detect unusual authentication locations, impossible travel scenarios, and potential account compromise in future investigations.
+
+## Skills Demonstrated
+
+- Microsoft Sentinel
+- Microsoft Entra ID
+- Geographic Authentication Analysis
+- Identity Monitoring
+- Kusto Query Language (KQL)
+- SOC Investigation
 ## Skills Demonstrated
 
 - Microsoft Sentinel
