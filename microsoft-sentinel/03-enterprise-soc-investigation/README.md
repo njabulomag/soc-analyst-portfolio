@@ -259,36 +259,40 @@ The results establish a geographic baseline of normal authentication activity. N
 
 Establishing a geographic baseline enables SOC analysts to quickly detect unusual authentication locations, impossible travel scenarios, and potential account compromise in future investigations.
 
+---
+
+# Step 7 – Top User Accounts Investigation
+
+## Objective
+
+Identify the Microsoft Entra ID accounts generating the highest number of authentication events and establish a baseline of normal user activity.
+
+## Query
+
+[07-top-user-accounts.kql](queries/07-top-user-accounts.kql)
+
+## Evidence
+
+![Top User Accounts](screenshots/07-top-user-accounts-overview.png)
+
+## Findings
+
+A KQL query summarized Microsoft Entra ID authentication events by user account.
+
+The investigation identified the primary user account as the most active with **3,515 sign-in events**, followed by a **Securitydefender** account with **473 sign-ins**.
+
+The activity is consistent with the authentication baseline established in previous investigations, which showed no risky sign-ins and authentication originating from South Africa. The Securitydefender account appears to represent a service or security-related account generating expected automated authentication activity.
+
+This investigation demonstrates how Microsoft Sentinel can be used to identify highly active accounts, establish normal authentication patterns, and prioritize accounts for further investigation when unusual activity is detected.
+
 ## Skills Demonstrated
 
 - Microsoft Sentinel
 - Microsoft Entra ID
-- Geographic Authentication Analysis
 - Identity Monitoring
+- User Activity Analysis
 - Kusto Query Language (KQL)
 - SOC Investigation
-## Skills Demonstrated
-
-- Microsoft Sentinel
-- Microsoft Entra ID
-- Identity Protection
-- Authentication Analysis
-- Kusto Query Language (KQL)
-- SOC Investigation
-## Skills Demonstrated
-
-- Microsoft Sentinel
-- Microsoft Entra ID
-- Identity Monitoring
-- Cloud Authentication Analysis
-- Kusto Query Language (KQL)
-- SOC Investigation
-
-## Upcoming Investigation Steps
-
-- Step 5 – Windows Security Investigation
-- Step 6 – Cross-Source Event Correlation
-- Step 7 – Enterprise SOC Investigation Summary
 
 ---
 
@@ -301,11 +305,7 @@ Establishing a geographic baseline enables SOC analysts to quickly detect unusua
 | notes | Detailed investigation notes |
 | README.md | Project documentation |
 
----
 
-## Project Status
-
-🚧 In Progress
 
 
 
