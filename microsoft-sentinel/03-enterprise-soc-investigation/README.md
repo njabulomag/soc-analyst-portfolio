@@ -134,9 +134,60 @@ A KQL query summarized Palo Alto firewall activity by device action.
 
 The investigation identified **125 denied connections**, **23 allowed connections**, and **1 firewall alert**. These results demonstrate how Microsoft Sentinel can be used to analyze firewall policy enforcement and identify network activity that may require additional investigation.
 
+---
+
+# Step 4 – Microsoft Entra ID Application Sign-in Overview
+
+## Objective
+
+Analyze Microsoft Entra ID authentication logs to determine which cloud applications are accessed most frequently and establish a baseline of normal application usage.
+
+## Query
+
+[04-identity-application-overview.kql](queries/04-identity-application-overview.kql)
+
+## Evidence
+
+### Query Execution
+
+![Entra ID Application Query](screenshots/04-entra-id-application-query.png)
+
+### Query Results
+
+![Entra ID Application Results](screenshots/04-entra-id-application-results.png)
+
+## Findings
+
+A KQL query was executed against the **EntraIdSignInEvents** table to summarize authentication activity by application.
+
+The investigation analyzed **3,903 sign-in events** and identified the following as the most frequently accessed applications:
+
+| Application | Sign-ins |
+|------------|---------:|
+| Microsoft 365 Security | 2363 |
+| Microsoft Defender | 764 |
+| Windows Defender | 481 |
+| Microsoft Threat Protection | 59 |
+| Microsoft Exchange | 58 |
+| Azure Portal | 58 |
+
+The results provide a baseline of normal authentication activity within the Microsoft cloud environment.
+
+Applications such as **Azure Portal** and **Microsoft Exchange** are particularly important because they provide administrative and messaging capabilities. Monitoring authentication activity for these services helps SOC analysts detect unauthorized access, compromised accounts, and unusual administrative behavior.
+
+This investigation demonstrates how Microsoft Sentinel can summarize large volumes of authentication logs into actionable information, enabling analysts to quickly understand user activity and identify areas requiring further investigation.
+
+## Skills Demonstrated
+
+- Microsoft Sentinel
+- Microsoft Entra ID
+- Identity Monitoring
+- Cloud Authentication Analysis
+- Kusto Query Language (KQL)
+- SOC Investigation
+
 ## Upcoming Investigation Steps
 
-- Step 4 – Identity Investigation (Okta & Microsoft Entra ID)
 - Step 5 – Windows Security Investigation
 - Step 6 – Cross-Source Event Correlation
 - Step 7 – Enterprise SOC Investigation Summary
