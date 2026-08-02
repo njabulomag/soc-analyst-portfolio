@@ -110,10 +110,32 @@ The query returned **53 alerts**, including several critical detections such as 
 
 These alerts mapped to multiple MITRE ATT&CK tactics, demonstrating how Microsoft Sentinel can be used to investigate endpoint activity and understand the progression of an attack across different stages of the cyber kill chain.
 
+---
+
+# Step 3 – Palo Alto Firewall Investigation
+
+## Query
+
+[03-palo-alto-firewall-investigation.kql](queries/03-palo-alto-firewall-investigation.kql)
+
+## Evidence
+
+### Firewall Activity Overview
+
+![Palo Alto Firewall Overview](screenshots/03-palo-alto-firewall-overview.png.png)
+
+### Firewall Device Actions
+
+![Palo Alto Device Actions](screenshots/03-palo-alto-firewall-device-actions.png.png)
+
+## Findings
+
+A KQL query summarized Palo Alto firewall activity by device action.
+
+The investigation identified **125 denied connections**, **23 allowed connections**, and **1 firewall alert**. These results demonstrate how Microsoft Sentinel can be used to analyze firewall policy enforcement and identify network activity that may require additional investigation.
+
 ## Upcoming Investigation Steps
 
-- Step 2 – CrowdStrike Endpoint Investigation
-- Step 3 – Palo Alto Firewall Investigation
 - Step 4 – Identity Investigation (Okta & Microsoft Entra ID)
 - Step 5 – Windows Security Investigation
 - Step 6 – Cross-Source Event Correlation
