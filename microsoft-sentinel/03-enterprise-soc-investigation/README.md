@@ -281,6 +281,48 @@ The activity is consistent with the authentication baseline established in previ
 
 This investigation demonstrates how Microsoft Sentinel can be used to identify highly active accounts, establish normal authentication patterns, and prioritize accounts for further investigation when unusual activity is detected.
 
+---
+
+# Step 8 – Operating System Analysis
+
+## Objective
+
+Analyze Microsoft Entra ID authentication logs to determine which operating systems are used for user sign-ins and establish an operating system baseline.
+
+## Query
+
+[08-operating-system-analysis.kql](queries/08-operating-system-analysis.kql)
+
+## Evidence
+
+![Operating System Analysis](screenshots/08-operating-system-analysis-overview.png)
+
+## Findings
+
+A KQL query summarized authentication events by operating system.
+
+The investigation identified the following authentication activity:
+
+| Operating System | Sign-ins |
+|-----------------|----------:|
+| Windows 10 | 2653 |
+| Windows | 1454 |
+
+Windows 10 generated the majority of authentication events, followed by devices reported under the generic Windows platform.
+
+No authentication activity from Linux, macOS, Android, or iOS devices was identified during the selected period.
+
+This investigation establishes a baseline of operating systems within the environment and demonstrates how Microsoft Sentinel can be used to detect unexpected platforms during authentication investigations.
+
+## Skills Demonstrated
+
+- Microsoft Sentinel
+- Microsoft Entra ID
+- Identity Monitoring
+- Operating System Analysis
+- Kusto Query Language (KQL)
+- SOC Investigation
+
 ## Skills Demonstrated
 
 - Microsoft Sentinel
