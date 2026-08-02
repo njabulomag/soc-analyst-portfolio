@@ -84,6 +84,31 @@ The investigation confirmed active telemetry from:
 This confirmed that the environment contains sufficient endpoint, identity, firewall, and operating system telemetry to perform enterprise-scale SOC investigations.
 
 ---
+---
+
+# Step 2 – CrowdStrike Endpoint Investigation
+
+## Query
+
+[02-crowdstrike-endpoint-investigation.kql](queries/02-crowdstrike-endpoint-investigation.kql)
+
+## Evidence
+
+### Endpoint Alert Overview
+
+![CrowdStrike Endpoint Overview](screenshots/02-crowdstrike-endpoint-overview.png.png)
+
+### Critical Endpoint Alerts
+
+![CrowdStrike Critical Alerts](screenshots/02-crowdstrike-critical-alerts.png.png)
+
+## Findings
+
+A KQL investigation was performed against the **CrowdStrikeAlerts** table to review endpoint detections.
+
+The query returned **53 alerts**, including several critical detections such as Credential Dumping, Command and Control activity, Malicious PowerShell Execution, Security Tool Tampering, Sensitive File Staging, and Ransomware Behavior.
+
+These alerts mapped to multiple MITRE ATT&CK tactics, demonstrating how Microsoft Sentinel can be used to investigate endpoint activity and understand the progression of an attack across different stages of the cyber kill chain.
 
 ## Upcoming Investigation Steps
 
