@@ -1,0 +1,3 @@
+EntraIdSignInEvents
+| summarize SignInCount = count() by OSPlatform
+| order by SignInCount desc
