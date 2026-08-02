@@ -241,7 +241,9 @@ Analyze Microsoft Entra ID authentication logs to identify the countries from wh
 
 ### Query Execution
 
-![Sign-ins by Country Query](screenshots/06-signins-by-country-overview.png.pgn)
+## Evidence
+
+![Sign-ins by Country](screenshots/06%20Sign-ins%20by%20Country.png.png)
 
 ## Findings
 
