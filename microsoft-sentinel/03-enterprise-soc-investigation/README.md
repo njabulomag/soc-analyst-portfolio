@@ -314,6 +314,38 @@ No authentication activity from Linux, macOS, Android, or iOS devices was identi
 
 This investigation establishes a baseline of operating systems within the environment and demonstrates how Microsoft Sentinel can be used to detect unexpected platforms during authentication investigations.
 
+---
+
+# Step 9 – Browser Analysis
+
+## Objective
+
+Analyze Microsoft Entra ID authentication logs to identify the browsers and client applications used during user authentication.
+
+## Query
+
+[09-browser-analysis.kql](queries/09-browser-analysis.kql)
+
+## Evidence
+
+### Query Execution
+
+![Browser Analysis Query](screenshots/09-browser-analysis-query.png.png)
+
+### Query Results
+
+![Browser Analysis Results](screenshots/09-browser-analysis-results.png.png)
+## Findings
+
+A KQL query summarized Microsoft Entra ID authentication events by browser and client application.
+
+The majority of authentication events originated from Microsoft Rich Client applications, with **Rich Client 4.83.1.0** recording **2,513 sign-ins**. Google Chrome also generated **159 authentication events**, indicating browser-based access to Microsoft services.
+
+A small number of authentication events were associated with **Python Requests**, suggesting automated or scripted access. While this does not necessarily indicate malicious activity, it should be validated to ensure the automation is authorized.
+
+The results establish a baseline of normal client applications used within the environment and provide valuable context for future authentication investigations.
+
+
 ## Skills Demonstrated
 
 - Microsoft Sentinel
@@ -323,14 +355,7 @@ This investigation establishes a baseline of operating systems within the enviro
 - Kusto Query Language (KQL)
 - SOC Investigation
 
-## Skills Demonstrated
 
-- Microsoft Sentinel
-- Microsoft Entra ID
-- Identity Monitoring
-- User Activity Analysis
-- Kusto Query Language (KQL)
-- SOC Investigation
 
 ---
 
