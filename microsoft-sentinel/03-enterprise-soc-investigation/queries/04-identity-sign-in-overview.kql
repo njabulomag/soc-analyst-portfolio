@@ -1,3 +1,3 @@
-EntraldSignInEvents
-| summarize SignInCount = count() by ActionType
+EntraIdSignInEvents
+| summarize SignInCount = count() by Application
 | order by SignInCount desc
