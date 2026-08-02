@@ -193,16 +193,6 @@ Administrative services such as **Azure Portal** and **Microsoft Exchange** are 
 
 This investigation demonstrates how Microsoft Sentinel can summarize thousands of authentication events into meaningful insights that help analysts understand user behavior and quickly identify areas requiring further investigation.
 
-## Skills Demonstrated
-
-- Microsoft Sentinel
-- Microsoft Entra ID
-- Identity Monitoring
-- Authentication Analysis
-- Cloud Security
-- Kusto Query Language (KQL)
-- SOC Investigation
-
 ## Key Learning
 
 This investigation introduced the use of the **summarize** operator to aggregate authentication logs by application.
