@@ -273,7 +273,7 @@ Identify the Microsoft Entra ID accounts generating the highest number of authen
 
 ## Evidence
 
-![Top User Accounts](screenshots/07-top-user-accounts-overview.png)
+![Top User Accounts](screenshots/07-top-user-accounts-overview.png.png)
 
 ## Findings
 
