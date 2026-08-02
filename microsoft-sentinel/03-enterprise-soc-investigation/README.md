@@ -295,7 +295,7 @@ Analyze Microsoft Entra ID authentication logs to determine which operating syst
 
 ## Evidence
 
-![Operating System Analysis](screenshots/08-operating-system-analysis-overview.png)
+![Operating System Analysis](screenshots/08-operating-system-analysis-overview.png.png)
 
 ## Findings
 
