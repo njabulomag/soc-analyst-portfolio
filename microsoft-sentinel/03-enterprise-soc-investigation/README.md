@@ -124,10 +124,6 @@ These alerts mapped to multiple MITRE ATT&CK tactics, demonstrating how Microsof
 
 ![Palo Alto Firewall Overview](screenshots/03-palo-alto-firewall-overview.png.png)
 
-### Firewall Device Actions
-
-![Palo Alto Device Actions](screenshots/03-palo-alto-firewall-device-actions.png.png)
-
 ## Findings
 
 A KQL query summarized Palo Alto firewall activity by device action.
