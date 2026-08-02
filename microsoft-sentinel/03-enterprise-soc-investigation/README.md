@@ -199,6 +199,40 @@ This investigation introduced the use of the **summarize** operator to aggregate
 
 Rather than reviewing thousands of individual sign-in events, SOC analysts first establish a baseline of normal application usage. This makes it easier to identify unusual authentication patterns, unexpected application access, and potential indicators of account compromise.
 
+---
+
+# Step 5 – Risky Sign-ins Investigation
+
+## Objective
+
+Review Microsoft Entra ID authentication logs to determine whether any sign-ins were classified as risky.
+
+## Query
+
+[05-risky-signins.kql](queries/05-risky-signins.kql)
+
+## Evidence
+
+![Risky Sign-ins Overview](screenshots/05-risky-signins-overview.png)
+
+## Findings
+
+A KQL query summarized authentication events by **RiskLevelAggregated**.
+
+The investigation analyzed **3,925 sign-in events**, and all events were classified with a risk level of **0 (No Risk)**.
+
+This indicates that Microsoft Entra ID did not identify any risky authentication activity during the selected time period.
+
+Although no suspicious sign-ins were detected, this investigation demonstrates how Microsoft Sentinel can be used to continuously monitor identity risk and establish a baseline of normal authentication activity.
+
+## Skills Demonstrated
+
+- Microsoft Sentinel
+- Microsoft Entra ID
+- Identity Protection
+- Authentication Analysis
+- Kusto Query Language (KQL)
+- SOC Investigation
 ## Skills Demonstrated
 
 - Microsoft Sentinel
