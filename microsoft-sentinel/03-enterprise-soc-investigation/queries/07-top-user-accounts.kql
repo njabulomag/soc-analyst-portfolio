@@ -1,0 +1,4 @@
+EntraIdSignInEvents
+| summarize SignInCount = count() by AccountUpn
+| order by SignInCount desc
+| take 10
