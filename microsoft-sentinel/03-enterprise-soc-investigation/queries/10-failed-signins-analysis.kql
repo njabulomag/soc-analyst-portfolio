@@ -1,0 +1,4 @@
+EntraIdSignInEvents
+| summarize FailedSignIns = count() by ErrorCode
+| where ErrorCode != 0
+| order by FailedSignIns desc
