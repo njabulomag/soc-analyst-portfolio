@@ -1,7 +1,0 @@
-EntraIdSignInEvents
-| summarize
-    Countries = dcount(Country),
-    CountryList = make_set(Country)
-by AccountUpn
-| where Countries > 1
-| order by Countries desc
