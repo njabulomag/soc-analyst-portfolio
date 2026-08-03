@@ -345,6 +345,43 @@ A small number of authentication events were associated with **Python Requests**
 
 The results establish a baseline of normal client applications used within the environment and provide valuable context for future authentication investigations.
 
+---
+
+# Step 10 – Failed Authentication Analysis
+
+## Objective
+
+Analyze Microsoft Entra ID authentication failures to identify common sign-in errors and determine whether they indicate suspicious activity.
+
+## Query
+
+[10-failed-signins-analysis.kql](queries/10-failed-signins-analysis.kql)
+
+## Evidence
+
+### Query Execution
+
+![Failed Sign-ins Query](screenshots/10-failed-signins-query.png.png)
+
+### Query Results
+
+![Failed Sign-ins Results](screenshots/10-failed-signins-results.png.png)
+
+## Findings
+
+A KQL query summarized failed authentication events by Azure/Entra ID error code.
+
+The investigation identified two authentication error codes:
+
+| Error Code | Failed Sign-ins |
+|------------|----------------:|
+| 70008 | 3 |
+| 50011 | 1 |
+
+A total of **4 failed authentication events** were observed. The most common error was **70008**, which is typically associated with expired or inactive refresh tokens. A single **50011** error indicated an application redirect URI configuration issue.
+
+No evidence of password spraying, brute-force attacks, or widespread authentication failures was identified during the selected period.
+
 
 ## Skills Demonstrated
 
@@ -354,8 +391,6 @@ The results establish a baseline of normal client applications used within the e
 - Operating System Analysis
 - Kusto Query Language (KQL)
 - SOC Investigation
-
-
 
 ---
 
