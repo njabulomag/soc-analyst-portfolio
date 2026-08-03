@@ -1,1 +1,9 @@
-
+EmailEvents
+| project
+    TimeGenerated,
+    SenderFromAddress,
+    RecipientEmailAddress,
+    Subject,
+    DeliveryAction,
+    DeliveryLocation
+| order by TimeGenerated desc
