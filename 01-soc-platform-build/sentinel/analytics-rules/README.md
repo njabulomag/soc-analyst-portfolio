@@ -105,7 +105,7 @@ The Analytics Rule was successfully deployed and enabled within Microsoft Sentin
 
 ## Figure 1 – Analytics Rules Overview
 
-![Analytics Rules Overview](screenshots/01-soc-platform-buildsentinelanalytics-rulesscreenshots01-built-in-analytics-rule.png.png)
+![Analytics Rules Overview](screenshots/01-soc-platform-buildsentinelanalytics-rulesscreenshots01-analytics-overview.png.png)
 
 The Microsoft Sentinel Analytics Rules dashboard showing active rules, severity, MITRE ATT&CK mappings, and operational status.
 
@@ -121,7 +121,7 @@ Configuration of the built-in **NRT Security Event Log Cleared** Analytics Rule.
 
 ## Figure 3 – Custom KQL Validation
 
-![Custom KQL Validation](screenshots/01-soc-platform-buildsentinelanalytics-rulesscreenshots03-built-in-analytics-rule.png.png)
+![Custom KQL Validation](screenshots/01-soc-platform-buildsentinelanalytics-rulesscreenshots03-custom-kql-validation.png.png)
 
 Validation of the custom KQL query showing multiple failed Windows logon attempts detected from the **SecurityEvent** table.
 
@@ -129,7 +129,7 @@ Validation of the custom KQL query showing multiple failed Windows logon attempt
 
 ## Figure 4 – Custom Rule General Configuration
 
-![Custom Rule General Configuration](screenshots/01-soc-platform-buildsentinelanalytics-rulesscreenshots04-built-in-analytics-rule.png.png)
+![Custom Rule General Configuration](screenshots/01-soc-platform-buildsentinelanalytics-rulesscreenshots04-custom-rule-general.png.png)
 
 General configuration page showing the rule name, description, severity, and MITRE ATT&CK mapping.
 
@@ -137,7 +137,7 @@ General configuration page showing the rule name, description, severity, and MIT
 
 ## Figure 5 – Rule Logic Configuration
 
-![Rule Logic Configuration](screenshots/01-soc-platform-buildsentinelanalytics-rulesscreenshots05-built-in-analytics-rule.png.png)
+![Rule Logic Configuration](screenshots/01-soc-platform-buildsentinelanalytics-rulesscreenshots05-custom-rule-logic.png.png)
 
 Configuration of the detection logic, KQL query, scheduling interval, and alert threshold.
 
@@ -145,7 +145,7 @@ Configuration of the detection logic, KQL query, scheduling interval, and alert 
 
 ## Figure 6 – Incident Settings
 
-![Incident Settings](screenshots/01-soc-platform-buildsentinelanalytics-rulesscreenshots06-built-in-analytics-rule.png.png)
+![Incident Settings](screenshots/01-soc-platform-buildsentinelanalytics-rulesscreenshots06-incident-settings.png.png)
 
 Configuration used to automatically generate Microsoft Sentinel incidents from alerts.
 
@@ -153,7 +153,7 @@ Configuration used to automatically generate Microsoft Sentinel incidents from a
 
 ## Figure 7 – Automation Configuration
 
-![Automation Configuration](screenshots/01-soc-platform-buildsentinelanalytics-rulesscreenshots07-built-in-analytics-rule.png.png)
+![Automation Configuration](screenshots/01-soc-platform-buildsentinelanalytics-rulesscreenshots07-automation-page.png.png)
 
 Automation configuration showing that no playbooks or automation rules were attached during the initial deployment.
 
@@ -161,7 +161,7 @@ Automation configuration showing that no playbooks or automation rules were atta
 
 ## Figure 8 – Review and Create
 
-![Review and Create](screenshots/01-soc-platform-buildsentinelanalytics-rulesscreenshots08-built-in-analytics-rule.png.png)
+![Review and Create](screenshots/01-soc-platform-buildsentinelanalytics-rulesscreenshots08-review-and-create.png.png)
 
 Final review page before deploying the custom Analytics Rule.
 
@@ -169,7 +169,7 @@ Final review page before deploying the custom Analytics Rule.
 
 ## Figure 9 – Custom Analytics Rule Created
 
-![Custom Analytics Rule Created](screenshots/01-soc-platform-buildsentinelanalytics-rulesscreenshots09-built-in-analytics-rule.png.png)
+![Custom Analytics Rule Created](screenshots/01-soc-platform-buildsentinelanalytics-rulesscreenshots09-custom-rule-created.png.png)
 
 Confirmation that the custom Analytics Rule was successfully created and enabled.
 
