@@ -75,25 +75,24 @@ This implementation successfully demonstrated the creation and management of Thr
 
 ### Screenshot 01 – Threat Intelligence Overview
 
-`./screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots01-threat-intelligence-overview.png.png`
+![Threat Intelligence Overview](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots01-threat-intelligence-overview.png.png)
 
 ### Screenshot 02 – New Threat Intelligence Object
 
-`./screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots02-new-ti-object.png.png`
+![New Threat Intelligence Object](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots02-new-ti-object.png.png)
 
 ### Screenshot 03 – Manual IPv4 Indicator
 
-`./screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots03-manual-ip-indicator.png.png`
+![Manual IPv4 Indicator](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots03-manual-ip-indicator.png.png)
 
 ### Screenshot 04 – Manual Domain Indicator
 
-`./screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots04-manual-domain-indicator.png.png`
+![Manual Domain Indicator](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots04-manual-domain-indicator.png.png)
 
 ### Screenshot 05 – Manual SHA-256 Indicator
 
-`./screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots05-manual-filehash-indicator.png.png`
+![Manual SHA-256 Indicator](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots05-manual-filehash-indicator.png.png)
 
-### Screenshot 06 – Threat Intelligence Indicator Repository
+### Screenshot 06 – Threat Intelligence Indicator List
 
-`./screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots07-threat-intelligence-indicator-list.png.png`
-
+![Threat Intelligence Indicator List](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots07-threat-intelligence-indicator-list.png.png)
