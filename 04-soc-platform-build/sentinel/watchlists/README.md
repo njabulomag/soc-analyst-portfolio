@@ -68,7 +68,7 @@ The watchlist was queried from Log Analytics using the Microsoft Sentinel watchl
 _GetWatchlist('KnownBadIPs')
 ```
 
-![KnownBadIPs Query](screenshots/04-soc-platform-buildsentinelwatchlistsscreenshots03-knownbadips-query-results.png.png)
+![KnownBadIPs Query](screenshots/04-soc-platform-buildsentinelwatchlistsscreenshots03-knownbadips-query-results.png.png.png)
 
 ---
 
