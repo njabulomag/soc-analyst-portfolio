@@ -1,1 +1,77 @@
+# Automation KQL Queries
 
+## Overview
+
+Although Microsoft Sentinel Automation Rules are configured through the Automation workspace rather than Kusto Query Language (KQL), KQL remains an important tool for validating incidents that trigger automation and for investigating security events after automated actions have been applied.
+
+The following queries are useful during post-incident investigation and automation validation.
+
+---
+
+# Query 1 – View Recent Incidents
+
+```kusto
+SecurityIncident
+| sort by TimeGenerated desc
+```
+
+### Purpose
+
+Displays the most recently created Microsoft Sentinel incidents.
+
+---
+
+# Query 2 – View High Severity Incidents
+
+```kusto
+SecurityIncident
+| where Severity =~ "High"
+| sort by TimeGenerated desc
+```
+
+### Purpose
+
+Returns only High severity incidents.
+
+This query is useful because the Automation Rule created during this implementation executes only for High severity incidents.
+
+---
+
+# Query 3 – View Incident Status
+
+```kusto
+SecurityIncident
+| project TimeGenerated,
+          IncidentNumber,
+          Title,
+          Severity,
+          Status,
+          Owner
+| sort by TimeGenerated desc
+```
+
+### Purpose
+
+Displays important incident information including severity, current status, and assigned owner.
+
+---
+
+# Query 4 – Count Incidents by Severity
+
+```kusto
+SecurityIncident
+| summarize TotalIncidents=count() by Severity
+| sort by TotalIncidents desc
+```
+
+### Purpose
+
+Provides a summary of incidents grouped by severity level.
+
+---
+
+# Notes
+
+These queries support investigation and validation after automation has been configured. While Automation Rules themselves are not created with KQL, KQL enables analysts to verify that qualifying incidents exist and to investigate incidents processed by automated workflows.
+
+Before using additional queries, it is recommended to verify the available schema in your Microsoft Sentinel workspace, as table structures may vary between environments.
