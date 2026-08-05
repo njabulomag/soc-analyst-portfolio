@@ -2,57 +2,102 @@
 
 ## Project Overview
 
-This implementation demonstrates how Microsoft Sentinel Threat Intelligence can be used to create, manage, and maintain Indicators of Compromise (IOCs) using the modern STIX 2.1 Threat Intelligence model. The objective was to configure Threat Intelligence within Microsoft Sentinel, manually create multiple IOC types, and validate that the indicators were successfully stored and available for future detection and investigation activities.
+This implementation demonstrates the deployment and management of Threat Intelligence within Microsoft Sentinel using the STIX 2.1 Threat Intelligence model. The project focuses on creating, managing, and validating Indicators of Compromise (IOCs) that can later be used for threat detection, investigation, and incident response.
+
+---
 
 ## Objectives
 
 * Explore the Microsoft Sentinel Threat Intelligence workspace.
-* Create Threat Intelligence (TI) objects using the STIX 2.1 model.
-* Create and manage multiple Indicator of Compromise (IOC) types.
+* Create STIX 2.1 Threat Intelligence objects.
+* Create manual Indicators of Compromise (IOCs).
+* Manage Threat Intelligence indicators.
+* Validate the implementation using Microsoft Sentinel.
 * Document the complete implementation process.
-* Prepare Threat Intelligence data for future detection and investigation use.
+
+---
 
 ## Technologies Used
 
 * Microsoft Sentinel
 * Microsoft Azure
 * Log Analytics Workspace
-* STIX 2.1 Threat Intelligence Objects
+* Threat Intelligence
+* STIX 2.1
 * Kusto Query Language (KQL)
 
-## Implementation Summary
+---
 
-The implementation began by reviewing the Threat Intelligence workspace within Microsoft Sentinel. A new Threat Intelligence object was created using the current STIX 2.1 interface.
+## Implementation Steps
 
-Three manual Indicators of Compromise were then created:
+### 1. Threat Intelligence Overview
 
-* Malicious IPv4 Address
-* Malicious Domain
-* Malicious SHA-256 File Hash
+The Microsoft Sentinel Threat Intelligence workspace was reviewed to understand the available functionality for creating and managing Threat Intelligence objects.
 
-Each indicator included descriptive information, confidence scoring, expiration dates, and supporting metadata. After creation, the indicators were verified within the Threat Intelligence repository.
+![Threat Intelligence Overview](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots01-threat-intelligence-overview.png.png.png)
 
-## Evidence
+---
 
-| Screenshot    | Description                              |
-| ------------- | ---------------------------------------- |
-| Screenshot 01 | Threat Intelligence Overview             |
-| Screenshot 02 | New Threat Intelligence Object           |
-| Screenshot 03 | Manual IPv4 Indicator                    |
-| Screenshot 04 | Manual Domain Indicator                  |
-| Screenshot 05 | Manual SHA-256 Indicator                 |
-| Screenshot 06 | Threat Intelligence Indicator Repository |
-| Screenshot 07 | Final Threat Intelligence Indicator List |
+### 2. Creating a Manual Threat Intelligence Indicator
+
+A new Threat Intelligence Indicator was created using the STIX 2.1 interface.
+
+![Manual Threat Intelligence Indicator](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots02-manual-ip-indicator.png.png.png)
+
+---
+
+### 3. Creating an IPv4 Indicator
+
+A malicious IPv4 Indicator of Compromise was manually created. The indicator included confidence scoring, severity, expiration date, and supporting metadata.
+
+![Manual IPv4 Indicator](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots03-manual-ip-indicator.png.png.png)
+
+---
+
+### 4. Creating a Domain Indicator
+
+A malicious domain IOC was added to the Threat Intelligence repository using the same STIX workflow.
+
+![Manual Domain Indicator](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots04-manual-domain-indicator.png.png.png)
+
+---
+
+### 5. Creating a SHA-256 File Hash Indicator
+
+A SHA-256 hash IOC was manually created to demonstrate support for file-based threat intelligence.
+
+![Manual File Hash Indicator](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots05-manual-filehash-indicator.png.png.png)
+
+---
+
+### 6. Threat Intelligence Repository
+
+After creating the indicators, Microsoft Sentinel displayed them within the Threat Intelligence repository for centralized management.
+
+![Threat Intelligence Indicator Repository](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots06-threat-intelligence-indicator-list.png.png.png)
+
+---
+
+### 7. Threat Intelligence Validation
+
+The Threat Intelligence implementation was validated by querying the Threat Intelligence table within Microsoft Sentinel Logs to verify that the indicators were available for future detection and investigation workflows.
+
+![Threat Intelligence KQL Validation](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots07-threat-intelligence-kql-validation.png.png.png)
+
+---
 
 ## Skills Demonstrated
 
+* Microsoft Sentinel Administration
+* Threat Intelligence Management
+* STIX 2.1 Indicator Creation
+* Indicator of Compromise (IOC) Management
+* Security Operations Center (SOC) Documentation
 * Microsoft Sentinel Threat Intelligence
-* STIX 2.1 Indicator Management
-* IOC Creation
-* Threat Intelligence Administration
+* Kusto Query Language (KQL)
 * Security Documentation
-* KQL Validation
-* SOC Documentation Best Practices
+
+---
 
 ## Repository Structure
 
@@ -67,32 +112,8 @@ threat-intelligence/
 └── README.md
 ```
 
+---
+
 ## Outcome
 
-This implementation successfully demonstrated the creation and management of Threat Intelligence indicators using Microsoft Sentinel's modern STIX 2.1 framework. The completed implementation establishes a reusable Threat Intelligence foundation that can later be integrated with analytics rules, automation, investigations, and incident response workflows.
-
-## Evidence
-
-### Screenshot 01 – Threat Intelligence Overview
-
-![Threat Intelligence Overview](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots01-threat-intelligence-overview.png.png)
-
-### Screenshot 02 – New Threat Intelligence Object
-
-![New Threat Intelligence Object](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots02-new-ti-object.png.png)
-
-### Screenshot 03 – Manual IPv4 Indicator
-
-![Manual IPv4 Indicator](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots03-manual-ip-indicator.png.png)
-
-### Screenshot 04 – Manual Domain Indicator
-
-![Manual Domain Indicator](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots04-manual-domain-indicator.png.png)
-
-### Screenshot 05 – Manual SHA-256 Indicator
-
-![Manual SHA-256 Indicator](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots05-manual-filehash-indicator.png.png)
-
-### Screenshot 06 – Threat Intelligence Indicator List
-
-![Threat Intelligence Indicator List](screenshots/02-soc-platform-buildsentinelthreat-intelligencescreenshots07-threat-intelligence-indicator-list.png.png)
+This implementation successfully demonstrated the deployment and management of Microsoft Sentinel Threat Intelligence using the modern STIX 2.1 framework. Multiple IOC types were created, managed, and validated, providing a reusable Threat Intelligence foundation that can be integrated into future analytics rules, automation workflows, investigations, and incident response activities.
