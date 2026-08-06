@@ -1,1 +1,91 @@
+# Microsoft Sentinel Hunting Queries
 
+## Overview
+
+Microsoft Sentinel Hunting uses Kusto Query Language (KQL) to proactively search security data for suspicious activity that may not have generated alerts or incidents.
+
+During this implementation, one custom hunting query was available within the Microsoft Sentinel workspace.
+
+---
+
+# Query 1 – Solorigate Inventory Check
+
+## Purpose
+
+The **Solorigate Inventory check** hunting query is designed to identify indicators associated with the SolarWinds (Solorigate) compromise.
+
+The query searches collected Windows and Sysmon events for activity related to known attack techniques.
+
+---
+
+## Query Characteristics
+
+| Property            | Value                      |
+| ------------------- | -------------------------- |
+| Query Name          | Solorigate Inventory check |
+| Content Source      | Custom                     |
+| MITRE ATT&CK Tactic | Execution                  |
+| Entity Types        | Account, Host              |
+
+---
+
+## Query Structure
+
+The hunting query contains several KQL components, including:
+
+* Time range filtering.
+* Union operations.
+* Windows Event Log searches.
+* Sysmon Event Log searches.
+* Event filtering.
+* Data transformation using the `extend` operator.
+
+---
+
+## Validation
+
+The query was executed from the Microsoft Sentinel Hunting workspace.
+
+Execution returned the following error:
+
+```text id="uzw6up"
+'extend' operator: Failed to resolve scalar expression named 'Account_s'
+```
+
+---
+
+## Analysis
+
+The error indicates that the hunting query references a field named **Account_s**, which is not present in the current Microsoft Sentinel lab dataset.
+
+This is a schema compatibility issue between the hunting query and the available data sources rather than a Microsoft Sentinel platform failure.
+
+---
+
+## Lessons Learned
+
+This implementation demonstrates several important SOC concepts:
+
+* Hunting queries depend on available data sources.
+* Queries must match the schema of collected log data.
+* Different Microsoft Sentinel environments may contain different field names.
+* Analysts should validate hunting queries before operational use.
+* Schema validation is an important part of threat hunting.
+
+---
+
+## Recommendations
+
+Before deploying hunting queries into production:
+
+* Validate required tables.
+* Verify required columns exist.
+* Test queries against current data.
+* Update field names when necessary.
+* Document any schema differences.
+
+---
+
+## Summary
+
+The Microsoft Sentinel Hunting workspace successfully executed the custom hunting query. Although the query could not complete because the expected **Account_s** field was unavailable in the current lab environment, the validation confirmed the hunting workflow and highlighted the importance of verifying data schemas when performing proactive threat hunting.
