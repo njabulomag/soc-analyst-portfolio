@@ -4,7 +4,7 @@
 
 Microsoft Sentinel Workbooks provide interactive dashboards that enable Security Operations Center (SOC) analysts to visualize security data collected within Microsoft Sentinel. Workbooks combine charts, tables, metrics, and visualizations to support security monitoring, incident investigations, and operational reporting.
 
-This guide documents the implementation, validation, and review of Microsoft Sentinel Workbooks in the Microsoft Sentinel lab environment.
+This guide documents the implementation and validation of Microsoft Sentinel Workbooks within the Microsoft Sentinel lab environment.
 
 ---
 
@@ -14,13 +14,13 @@ This guide documents the implementation, validation, and review of Microsoft Sen
 * Explore workbook dashboards.
 * Validate workbook functionality.
 * Review workspace monitoring information.
-* Document workbook implementation.
+* Document the workbook implementation.
 
 ---
 
 ## Workbooks Reviewed
 
-The following workbooks were available during this implementation:
+During this implementation, the following Microsoft Sentinel workbooks were available:
 
 * **LabWorkbook**
 * **Workspace & Lake Usage**
@@ -35,7 +35,8 @@ workbooks/
 ├── customization/
 ├── validation/
 ├── notes/
-└── screenshots/
+├── screenshots/
+└── README.md
 ```
 
 ---
@@ -44,58 +45,67 @@ workbooks/
 
 ### 1. Workbooks Overview
 
-![Workbooks Overview](https://github.com/njabulomag/soc-analyst-portfolio/blob/main/06-soc-platform-build/sentinel/workbooks/screenshots/01-workbooks-overview.png.png)
+![Workbooks Overview](screenshots/06-soc-platform-buildsentinelworkbooksscreenshots01-workbooks-overview.png.png)
 
-Displays the **My Workbooks** page showing the workbooks available in the Microsoft Sentinel lab environment.
+The Microsoft Sentinel **My Workbooks** page displaying the workbooks available in the lab environment.
 
 ---
 
 ### 2. LabWorkbook Dashboard
 
-![LabWorkbook Dashboard](https://github.com/njabulomag/soc-analyst-portfolio/blob/main/06-soc-platform-build/sentinel/workbooks/screenshots/02-labworkbook-dashboard.png.png)
+![LabWorkbook Dashboard](screenshots/06-soc-platform-buildsentinelworkbooksscreenshots02-labworkbook-dashboard.png.png)
 
-Shows the **LabWorkbook** after configuring the required parameters (**Incident Severity** and **Status**) and successfully loading the dashboard.
+The **LabWorkbook** after configuring the required parameters (**Incident Severity** and **Status**) and successfully loading the workbook dashboard.
 
 ---
 
 ### 3. Workspace & Lake Usage Dashboard
 
-![Workspace & Lake Usage](https://github.com/njabulomag/soc-analyst-portfolio/blob/main/06-soc-platform-build/sentinel/workbooks/screenshots/03-workspace-lake-usage-dashboard.png.png)
+![Workspace & Lake Usage Dashboard](screenshots/06-soc-platform-buildsentinelworkbooksscreenshots03-workspace-lake-usage-dashboard.png.png)
 
-Displays the **Workspace & Lake Usage** workbook used to monitor Microsoft Sentinel workspace activity and Log Analytics usage.
+The **Workspace & Lake Usage** workbook showing Microsoft Sentinel workspace monitoring information and Log Analytics usage.
 
 ---
 
 ### 4. Workspace Summary
 
-![Workspace Summary](https://github.com/njabulomag/soc-analyst-portfolio/blob/main/06-soc-platform-build/sentinel/workbooks/screenshots/04-workspace-summary.png.png)
+![Workspace Summary](screenshots/06-soc-platform-buildsentinelworkbooksscreenshots04-workspace-summary.png.png)
 
-Shows the workspace summary section containing monitoring information and workspace usage metrics.
+The workspace summary section displaying monitoring information and operational metrics for the Microsoft Sentinel environment.
 
 ---
 
-## Validation Summary
+## Implementation Summary
 
-The Microsoft Sentinel Workbooks implementation was successfully validated.
+During this implementation, the Microsoft Sentinel Workbooks feature was successfully explored and validated.
 
-During testing, the **LabWorkbook** initially required parameter configuration before queries could execute successfully. After configuring the required **Incident Severity** and **Status** parameters, the workbook loaded correctly.
+The **LabWorkbook** initially required parameter configuration before queries could execute. After configuring the **Incident Severity** and **Status** parameters, the workbook loaded successfully and displayed the expected dashboard.
 
-The **Workspace & Lake Usage** workbook loaded successfully and provided operational visibility into the Microsoft Sentinel workspace.
+The **Workspace & Lake Usage** workbook loaded successfully and provided visibility into workspace activity and usage statistics.
 
 ---
 
 ## Skills Demonstrated
 
 * Microsoft Sentinel Workbooks
-* Dashboard Validation
+* Dashboard Configuration
 * Workbook Parameter Configuration
 * Security Monitoring
 * Microsoft Sentinel Visualization
-* Operational Reporting
-* Log Analytics Monitoring
+* Log Analytics Workspace Monitoring
+* SOC Dashboard Validation
+
+---
+
+## Key Findings
+
+* Microsoft Sentinel Workbooks provide interactive dashboards for SOC monitoring.
+* Workbook parameters must be correctly configured before some queries can execute.
+* The LabWorkbook required initialization of the **Incident Severity** and **Status** parameters.
+* The Workspace & Lake Usage workbook successfully displayed operational monitoring information.
 
 ---
 
 ## Conclusion
 
-Microsoft Sentinel Workbooks provide valuable visualization capabilities that improve security monitoring and operational awareness. The implementation successfully validated both available workbooks, demonstrated workbook parameter configuration, and confirmed dashboard functionality within the Microsoft Sentinel lab environment.
+Microsoft Sentinel Workbooks provide an effective method for visualizing security operations and monitoring workspace activity. This implementation successfully validated both available workbooks, demonstrated workbook parameter configuration, and confirmed the ability to use workbooks for operational monitoring within Microsoft Sentinel.
