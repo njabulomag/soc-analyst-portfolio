@@ -73,7 +73,7 @@ Shows the installed Microsoft and community solutions available within the Micro
 
 ### 3. Microsoft Defender XDR Solution
 
-![Microsoft Defender XDR Solution](screenshots/08-soc-platform-buildsentinelcontent-hubscreenshots03-microsoft-defender-xdr-solution.png.png)
+![Microsoft Defender XDR Solution](screenshots/08-soc-platform-buildsentinelcontent-hubscreenshots03-solution-details.png.png)
 
 Displays the Microsoft Defender XDR solution details.
 
