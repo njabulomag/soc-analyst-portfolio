@@ -1,0 +1,30 @@
+CrowdStrikeDetections
+| where isnotempty(Behaviors)
+| extend B = todynamic(Behaviors)
+| where tostring(B.technique_id) == "T1059"
+| extend
+    BehaviorId = tostring(B.behavior_id),
+    Severity = toint(B.severity),
+    Confidence = toint(B.confidence),
+    Technique = tostring(B.technique),
+    FileName = tostring(B.filename),
+    CommandLine = tostring(B.cmdline),
+    SHA256 = tostring(B.sha256),
+    ProcessId = tostring(B.process_id),
+    ParentProcessId = tostring(B.parent_process_id),
+    BehaviorTimestamp = todatetime(B.timestamp)
+| where FileName =~ "powershell.exe"
+| where CommandLine has_any ("-enc", "-encodedcommand")
+| project
+    TimeGenerated,
+    BehaviorId,
+    Severity,
+    Confidence,
+    Technique,
+    FileName,
+    CommandLine,
+    SHA256,
+    ProcessId,
+    ParentProcessId,
+    BehaviorTimestamp
+| order by TimeGenerated desc
