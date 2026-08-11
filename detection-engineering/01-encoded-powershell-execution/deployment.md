@@ -344,3 +344,29 @@ Response
         ↓
 Detection Tuning
 ```
+
+## 15. Final Rule-Run Validation
+
+After allowing sufficient time for Microsoft Sentinel to populate the rule-run history, no rule-run records, alerts, or incidents were created.
+
+### Final Result
+
+* Detection query validation: **PASS**
+* Historical matches: **5**
+* Analytics Rule deployment: **PASS**
+* Rule status: **Enabled**
+* New alert generation: **Not observed**
+* New incident generation: **Not observed**
+
+### Root Cause Assessment
+
+The CrowdStrike behaviors used to validate the detection are historical telemetry. The observed events have historical `TimeGenerated` values and fall outside the scheduled rule's active lookback window.
+
+Microsoft Sentinel scheduled query rules evaluate events that occur within the configured lookback period. Creating the rule does not cause historical events outside that window to be replayed as new alerts or incidents.
+
+### Conclusion
+
+DE-001 successfully detects the encoded PowerShell pattern in historical CrowdStrike telemetry and returned five validated matches. The Analytics Rule was successfully deployed, but no new alert or incident was generated because the matching events were historical rather than newly ingested telemetry.
+
+This result was documented as an environmental validation limitation rather than a detection logic failure.
+
