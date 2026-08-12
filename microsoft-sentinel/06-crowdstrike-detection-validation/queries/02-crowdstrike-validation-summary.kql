@@ -1,0 +1,23 @@
+CrowdStrikeDetections
+| where TimeGenerated == datetime(2026-07-24 18:22:27.8748358)
+| extend
+    BehaviorId = tostring(Behaviors["behavior_id"]),
+    Technique = tostring(Behaviors["technique"]),
+    TechniqueId = tostring(Behaviors["technique_id"]),
+    Tactic = tostring(Behaviors["tactic"]),
+    Severity = toint(Behaviors["severity"]),
+    Confidence = toint(Behaviors["confidence"])
+| where BehaviorId in (
+    "3291034226",
+    "4074658324",
+    "4230917128",
+    "8052386461",
+    "9485725773"
+)
+| summarize
+    DetectionCount = count(),
+    Techniques = make_set(Technique),
+    TechniqueIds = make_set(TechniqueId),
+    Tactics = make_set(Tactic),
+    Severities = make_set(Severity),
+    ConfidenceScores = make_set(Confidence)
