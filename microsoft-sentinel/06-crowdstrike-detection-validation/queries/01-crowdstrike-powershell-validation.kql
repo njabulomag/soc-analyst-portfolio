@@ -1,1 +1,41 @@
-
+CrowdStrikeDetections
+| where TimeGenerated == datetime(2026-07-24 18:22:27.8748358)
+| extend
+    BehaviorId = tostring(Behaviors["behavior_id"]),
+    DisplayName = tostring(Behaviors["display_name"]),
+    Technique = tostring(Behaviors["technique"]),
+    TechniqueId = tostring(Behaviors["technique_id"]),
+    Tactic = tostring(Behaviors["tactic"]),
+    TacticId = tostring(Behaviors["tactic_id"]),
+    Severity = toint(Behaviors["severity"]),
+    Confidence = toint(Behaviors["confidence"]),
+    ProcessId = tostring(Behaviors["process_id"]),
+    ParentProcessId = tostring(Behaviors["parent_process_id"]),
+    FileName = tostring(Behaviors["filename"]),
+    FilePath = tostring(Behaviors["filepath"]),
+    CommandLine = tostring(Behaviors["cmdline"]),
+    SHA256 = tostring(Behaviors["sha256"])
+| where BehaviorId in (
+    "3291034226",
+    "4074658324",
+    "4230917128",
+    "8052386461",
+    "9485725773"
+)
+| project
+    TimeGenerated,
+    BehaviorId,
+    DisplayName,
+    Technique,
+    TechniqueId,
+    Tactic,
+    TacticId,
+    Severity,
+    Confidence,
+    FileName,
+    FilePath,
+    ProcessId,
+    ParentProcessId,
+    CommandLine,
+    SHA256
+| order by Severity desc
