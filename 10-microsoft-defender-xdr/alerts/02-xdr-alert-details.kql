@@ -1,0 +1,3 @@
+AlertInfo
+| project Timestamp, AlertId, Title, Severity, Category, ServiceSource
+| order by Timestamp desc
