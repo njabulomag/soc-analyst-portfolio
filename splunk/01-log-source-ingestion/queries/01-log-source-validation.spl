@@ -1,3 +1,0 @@
-index=* 
-| stats count by source
-| sort - count
