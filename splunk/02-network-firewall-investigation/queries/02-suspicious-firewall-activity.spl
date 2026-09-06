@@ -1,0 +1,6 @@
+index=main source="firewall.csv"
+| eval f=split(_raw,",")
+| eval action=mvindex(f,0), src_port=mvindex(f,1), src_ip=mvindex(f,2), dest_port=mvindex(f,3), traffic_action=mvindex(f,4), protocol=mvindex(f,6), severity=mvindex(f,7), category=mvindex(f,8), dest_ip=mvindex(f,9), dest_port2=mvindex(f,10), event_time=mvindex(f,11), user=mvindex(f,12)
+| search traffic_action="deny" OR traffic_action="port_scan"
+| stats count by traffic_action src_ip dest_ip dest_port protocol user
+| sort - count
