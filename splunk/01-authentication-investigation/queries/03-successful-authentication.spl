@@ -1,0 +1,4 @@
+index=*
+("successful login" OR "authentication success" OR "logged in")
+| stats count by user, src_ip
+| sort - count
