@@ -1,0 +1,6 @@
+index=main source="vpn.csv"
+| eval f=split(_raw,",")
+| eval action=mvindex(f,0), src_ip=mvindex(f,1), event_type=mvindex(f,2), location=mvindex(f,3), empty_field=mvindex(f,4), port=mvindex(f,5), severity=mvindex(f,6), category=mvindex(f,7), dest_ip=mvindex(f,8), event_time=mvindex(f,9), user=mvindex(f,10), device=mvindex(f,11)
+| search event_type="VPNLoginFailure" OR event_type="MFAFailure"
+| stats count by event_type src_ip user location device
+| sort - count
