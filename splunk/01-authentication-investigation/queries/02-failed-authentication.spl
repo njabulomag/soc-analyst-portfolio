@@ -1,4 +1,5 @@
-index=*
-("failed password" OR "authentication failure" OR "failed login")
-| stats count by user, src_ip
+index=main source="windows-security.csv"
+| search "4624_success"
+| rex field=_raw "^[^,]*,(?<device>[^,]*),(?<src_ip>[^,]*),(?<event_id>[^,]*),(?<event_type>[^,]*),(?<field6>[^,]*),(?<process>[^,]*),(?<severity>[^,]*),(?<category>[^,]*),(?<dest_ip>[^,]*),(?<event_time>[^,]*),(?<user>[^,\r\n]*)"
+| stats count by user src_ip device process
 | sort - count
