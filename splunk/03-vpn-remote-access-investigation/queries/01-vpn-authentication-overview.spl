@@ -1,0 +1,5 @@
+index=main source="vpn.csv"
+| eval f=split(_raw,",")
+| eval action=mvindex(f,0), src_ip=mvindex(f,1), user=mvindex(f,2), device=mvindex(f,3), result=mvindex(f,4), protocol=mvindex(f,5), severity=mvindex(f,6), category=mvindex(f,7), dest_ip=mvindex(f,8), event_time=mvindex(f,9)
+| stats count by action src_ip user device result
+| sort - count
