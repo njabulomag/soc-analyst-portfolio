@@ -1,0 +1,4 @@
+index=*
+("failed password" OR "authentication failure" OR "failed login")
+| stats count by user, src_ip
+| sort - count
