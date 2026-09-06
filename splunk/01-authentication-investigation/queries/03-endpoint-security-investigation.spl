@@ -1,4 +1,4 @@
 index=main source="crowdstrike.csv"
-| rex field=_raw "^[^,]*,(?<src_ip>[^,]*),(?<activity>[^,]*),(?<device>[^,]*),(?<field5>[^,]*),(?<process>[^,]*),(?<severity>[^,]*),(?<category>[^,]*),(?<dest_ip>[^,]*),(?<mitre_technique>[^,]*),(?<event_time>[^,]*),(?<user>[^,\r\n]*)"
+| rex field=_raw "^[^,]*,(?<src_ip>[^,]*),(?<activity>[^,]*),(?<device>[^,]*),[^,]*,(?<process>[^,]*),(?<severity>[^,]*),(?<category>[^,]*),(?<dest_ip>[^,]*),(?<mitre_technique>[^,]*),(?<event_time>[^,]*),(?<user>[^,\r\n]*)"
 | stats count by activity device process user src_ip mitre_technique
 | sort - count
