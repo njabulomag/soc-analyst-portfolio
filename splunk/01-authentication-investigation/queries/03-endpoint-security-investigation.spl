@@ -1,5 +1,4 @@
-index=main source="windows-security.csv"
-| search "4624_success"
-| rex field=_raw "^[^,]*,(?<device>[^,]*),(?<src_ip>[^,]*),(?<event_id>[^,]*),(?<event_type>[^,]*),(?<field6>[^,]*),(?<process>[^,]*),(?<severity>[^,]*),(?<category>[^,]*),(?<dest_ip>[^,]*),(?<event_time>[^,]*),(?<user>[^,\r\n]*)"
-| stats count by user src_ip device process
+index=main source="crowdstrike.csv"
+| rex field=_raw "^[^,]*,(?<src_ip>[^,]*),(?<activity>[^,]*),(?<device>[^,]*),(?<field5>[^,]*),(?<process>[^,]*),(?<severity>[^,]*),(?<category>[^,]*),(?<dest_ip>[^,]*),(?<mitre_technique>[^,]*),(?<event_time>[^,]*),(?<user>[^,\r\n]*)"
+| stats count by activity device process user src_ip mitre_technique
 | sort - count
