@@ -2,146 +2,273 @@
 
 ## Overview
 
-This project demonstrates a Security Operations Center (SOC) investigation using Splunk to analyze authentication and endpoint security activity.
+This project demonstrates a practical Security Operations Center (SOC) investigation using **Splunk**.
 
-The investigation uses multiple security log sources and Splunk Search Processing Language (SPL) to identify authentication patterns, successful logins, suspicious processes, source IP addresses, devices, users, and MITRE ATT&CK techniques.
+The investigation focuses on authentication activity and endpoint security events. SPL was used to search, extract, filter, and summarize security data to identify users, devices, processes, source IP addresses, and MITRE ATT&CK techniques.
 
-## Objectives
+The project is designed to demonstrate practical skills relevant to a **Junior SOC Analyst / Tier 1 SOC Analyst** role.
+
+---
+
+## Investigation Objectives
+
+The objectives of this investigation are to:
 
 * Analyze authentication activity
 * Identify successful authentication events
 * Investigate endpoint security activity
-* Correlate users, devices, processes, and source IP addresses
-* Identify potentially suspicious activity
-* Practice SPL investigation techniques used by SOC analysts
+* Identify users and devices involved in security events
+* Analyze source IP addresses
+* Identify processes involved in suspicious activity
+* Map endpoint activity to MITRE ATT&CK techniques
+* Document investigation findings
+* Preserve investigation evidence using screenshots
+
+---
 
 ## Data Sources
 
-The investigation uses:
+The investigation uses the following security datasets:
 
-* `windows-security.csv`
-* `crowdstrike.csv`
+| Dataset                | Purpose                                    |
+| ---------------------- | ------------------------------------------ |
+| `windows-security.csv` | Windows authentication and security events |
+| `crowdstrike.csv`      | Endpoint detection and response activity   |
 
-All investigation data is stored in the Splunk `main` index.
+The datasets are indexed in Splunk under:
 
-## Investigations
+```text
+index=main
+```
 
-### 01 — Authentication Overview
+---
 
-**Query:**
+# Investigation 01 — Authentication Overview
+
+## Objective
+
+The first investigation provides an overview of authentication-related activity from Windows Security logs.
+
+The goal is to understand authentication patterns involving users, devices, source IP addresses, and processes.
+
+## Query
+
+**FILE**
 
 ```text
 queries/01-authentication-overview.spl
 ```
 
-**Notes:**
+The query uses SPL to search and summarize authentication-related activity.
+
+## Notes
+
+**FILE**
 
 ```text
 notes/01-authentication-overview-notes.md
 ```
 
-**Purpose:**
+The notes document the investigation methodology, security relevance, and analyst observations.
 
-Review Windows Security authentication activity and identify patterns involving users, devices, source IP addresses, and processes.
+## Evidence
+
+**Screenshot**
+
+```text
+screenshots/01-authentication-overview-results.png
+```
+
+![Authentication Overview Results](screenshots/01-authentication-overview-results.png)
 
 ---
 
-### 02 — Successful Authentication
+# Investigation 02 — Successful Authentication
 
-**Query:**
+## Objective
 
-```text
-queries/02-successful-authentication.spl
+The second investigation focuses on successful Windows authentication events.
+
+The investigation uses the `4624_success` event type and summarizes authentication activity by user, source IP address, device, and process.
+
+## SPL Query
+
+```spl
+index=main source="windows-security.csv" 
+| search "4624_success" 
+| rex field=_raw "^[^,]*,(?<device>[^,]*),(?<src_ip>[^,]*),(?<event_id>[^,]*),(?<event_type>[^,]*),(?<field6>[^,]*),(?<process>[^,]*),(?<severity>[^,]*),(?<category>[^,]*),(?<dest_ip>[^,]*),(?<event_time>[^,]*),(?<user>[^,\r\n]*)" 
+| stats count by user src_ip device process 
+| sort - count
 ```
 
-**Notes:**
+## Investigation Fields
+
+The query extracts and analyzes:
+
+* `user`
+* `src_ip`
+* `device`
+* `process`
+
+The `stats` command groups the events and counts how frequently each combination occurs.
+
+## Security Relevance
+
+Successful authentication events are important during security investigations because an attacker using compromised credentials may authenticate successfully rather than generate repeated failed-login events.
+
+An analyst can investigate:
+
+* Unexpected users
+* Unusual source IP addresses
+* Unexpected devices
+* Suspicious processes
+* Repeated authentication activity
+
+## Notes
+
+**FILE**
 
 ```text
 notes/02-successful-authentication-notes.md
 ```
 
-**Evidence:**
+## Evidence
+
+**Screenshot**
 
 ```text
 screenshots/02-successful-authentication-results.png
 ```
 
-**Purpose:**
-
-Investigate successful Windows authentication events using Event ID `4624_success`.
-
-The investigation summarizes successful authentication activity by:
-
-* User
-* Source IP
-* Device
-* Process
-
-This helps identify unusual successful authentication patterns and potential credential misuse.
+![Successful Authentication Results](screenshots/02-successful-authentication-results.png)
 
 ---
 
-### 03 — Endpoint Security Investigation
+# Investigation 03 — Endpoint Security Investigation
 
-**Query:**
+## Objective
 
-```text
-queries/03-endpoint-security-investigation.spl
+The third investigation analyzes endpoint security activity collected from CrowdStrike EDR logs.
+
+The investigation correlates endpoint activity with:
+
+* Users
+* Devices
+* Processes
+* Source IP addresses
+* MITRE ATT&CK techniques
+* Activity frequency
+
+## SPL Query
+
+```spl
+index=main source="crowdstrike.csv"
+| rex field=_raw "^[^,]*,(?<src_ip>[^,]*),(?<activity>[^,]*),(?<device>[^,]*),[^,]*,(?<process>[^,]*),(?<severity>[^,]*),(?<category>[^,]*),(?<dest_ip>[^,]*),(?<mitre_technique>[^,]*),(?<event_time>[^,]*),(?<user>[^,\r\n]*)"
+| stats count by activity device process user src_ip mitre_technique
+| sort - count
 ```
 
-**Notes:**
+## Investigation Fields
 
-```text
-notes/03-endpoint-security-investigation-notes.md
-```
+The query extracts:
 
-**Evidence:**
+| Field             | Description                       |
+| ----------------- | --------------------------------- |
+| `activity`        | Type of endpoint activity         |
+| `device`          | Endpoint involved                 |
+| `process`         | Process associated with the event |
+| `user`            | User associated with the activity |
+| `src_ip`          | Source IP address                 |
+| `mitre_technique` | MITRE ATT&CK technique            |
+| `count`           | Number of matching events         |
 
-```text
-screenshots/03-endpoint-security-investigation-results.png
-```
+## Observed Activity
 
-**Purpose:**
-
-Investigate endpoint activity collected from CrowdStrike EDR logs.
-
-The investigation examines:
-
-* Activity type
-* Device
-* Process
-* User
-* Source IP
-* MITRE ATT&CK technique
-* Event frequency
-
-Observed activities include:
+The investigation identified activity including:
 
 * Network connections
 * Credential access
 * PowerShell activity
 * Malware detection
 
-Observed processes include:
+Processes observed included:
 
 * `powershell.exe`
 * `rundll32.exe`
 * `winword.exe`
 * `cmd.exe`
 
-## Investigation Methodology
+## Security Relevance
 
-The investigation follows a basic SOC workflow:
+Endpoint telemetry can help an SOC analyst identify potentially suspicious behavior.
 
-1. Identify the relevant log source.
-2. Search the required events.
-3. Extract important fields from raw log data.
-4. Group related events.
-5. Identify unusual or potentially suspicious activity.
-6. Document the investigation.
-7. Preserve screenshots as investigation evidence.
+For example, PowerShell, `rundll32.exe`, Microsoft Word, and command-line activity can provide useful indicators during an endpoint investigation.
 
-## Key SPL Techniques Demonstrated
+The analyst should investigate unusual combinations of:
+
+```text
+User → Device → Process → Source IP → Activity → MITRE Technique
+```
+
+## Notes
+
+**FILE**
+
+```text
+notes/03-endpoint-security-investigation-notes.md
+```
+
+## Evidence
+
+**Screenshot**
+
+```text
+screenshots/03-endpoint-security-investigation-results.png
+```
+
+![Endpoint Security Investigation Results](screenshots/03-endpoint-security-investigation-results.png)
+
+---
+
+# Investigation Methodology
+
+The investigations follow a basic SOC investigation workflow:
+
+### 1. Identify the Data Source
+
+Determine which security log contains the information required for the investigation.
+
+### 2. Search the Data
+
+Use Splunk SPL to locate relevant events.
+
+### 3. Extract Fields
+
+Use `rex` to extract useful fields from raw CSV events.
+
+### 4. Filter Events
+
+Use search conditions to focus on relevant security activity.
+
+### 5. Aggregate Events
+
+Use `stats` to group related events and identify repeated activity.
+
+### 6. Sort Results
+
+Sort results by event frequency to prioritize activity for investigation.
+
+### 7. Analyze
+
+Review users, devices, processes, IP addresses, and security techniques for unusual behavior.
+
+### 8. Document
+
+Record the investigation methodology and preserve screenshots as evidence.
+
+---
+
+# SPL Techniques Demonstrated
 
 This project demonstrates practical use of:
 
@@ -151,35 +278,43 @@ This project demonstrates practical use of:
 * `sort`
 * Field extraction
 * Event filtering
-* Data aggregation
-* Security event investigation
+* Event aggregation
+* Source filtering
+* Security log analysis
 
-## Security Skills Demonstrated
+---
 
-This project demonstrates practical SOC analyst skills including:
+# SOC Analyst Skills Demonstrated
 
-* Log analysis
+This project demonstrates:
+
 * Authentication investigation
-* Endpoint investigation
-* Security event filtering
-* Process analysis
-* Source IP analysis
+* Windows Security log analysis
+* Endpoint security investigation
+* CrowdStrike EDR analysis
 * User activity analysis
-* MITRE ATT&CK mapping
-* Evidence documentation
+* Device analysis
+* Process analysis
+* Source IP investigation
+* MITRE ATT&CK analysis
 * SPL development
+* Security evidence documentation
+* Investigation reporting
 
-## Project Structure
+---
+
+# Project Structure
 
 ```text
 01-authentication-investigation/
+│
 ├── queries/
 │   ├── 01-authentication-overview.spl
 │   ├── 02-successful-authentication.spl
 │   └── 03-endpoint-security-investigation.spl
 │
 ├── screenshots/
-│   ├── 01-...
+│   ├── 01-authentication-overview-results.png
 │   ├── 02-successful-authentication-results.png
 │   └── 03-endpoint-security-investigation-results.png
 │
@@ -191,9 +326,53 @@ This project demonstrates practical SOC analyst skills including:
 └── README.md
 ```
 
-## Analyst Takeaway
+---
 
-Authentication and endpoint logs provide valuable evidence for detecting potentially compromised accounts, suspicious processes, unusual source IP addresses, and malicious activity.
+# Analyst Takeaway
 
-Using SPL to extract and correlate these fields allows a SOC analyst to quickly move from raw security logs to actionable investigation data.
+Authentication and endpoint telemetry provide valuable evidence for identifying potentially compromised accounts, suspicious processes, unusual source IP addresses, and malicious endpoint activity.
+
+Using SPL to extract and correlate security data allows an SOC analyst to move from raw log events to structured investigation results.
+
+This project demonstrates the practical workflow of:
+
+```text
+Raw Security Logs
+        ↓
+SPL Search
+        ↓
+Field Extraction
+        ↓
+Event Aggregation
+        ↓
+Security Analysis
+        ↓
+Evidence
+        ↓
+Investigation Documentation
+```
+
+---
+
+# Evidence Summary
+
+| Investigation                   | Query                                    | Notes                                         | Screenshot                                       |
+| ------------------------------- | ---------------------------------------- | --------------------------------------------- | ------------------------------------------------ |
+| Authentication Overview         | `01-authentication-overview.spl`         | `01-authentication-overview-notes.md`         | `01-authentication-overview-results.png`         |
+| Successful Authentication       | `02-successful-authentication.spl`       | `02-successful-authentication-notes.md`       | `02-successful-authentication-results.png`       |
+| Endpoint Security Investigation | `03-endpoint-security-investigation.spl` | `03-endpoint-security-investigation-notes.md` | `03-endpoint-security-investigation-results.png` |
+
+---
+
+## Project Status
+
+**Completed investigations:** 3
+
+**Platform:** Splunk
+
+**Focus:** Authentication & Endpoint Security
+
+**Role:** SOC Analyst / Security Operations
+
+**Evidence:** SPL queries, investigation notes, and screenshots
 
