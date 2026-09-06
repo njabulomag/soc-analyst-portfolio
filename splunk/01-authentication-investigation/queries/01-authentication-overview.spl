@@ -1,3 +1,5 @@
 index=*
-| stats count by sourcetype
+| where source!="splunk-upgrade-readiness-checks-installed-apps"
+    AND source!="splunk-under-skewed-searches-summary"
+| stats count by source
 | sort - count
