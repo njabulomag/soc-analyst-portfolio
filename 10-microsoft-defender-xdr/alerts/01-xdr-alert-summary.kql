@@ -1,2 +1,0 @@
-AlertInfo
-| summarize AlertCount = count()
