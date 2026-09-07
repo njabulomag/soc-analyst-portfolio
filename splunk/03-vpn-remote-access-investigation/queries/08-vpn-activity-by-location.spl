@@ -1,0 +1,5 @@
+index=main source="vpn.csv"
+| eval f=split(_raw,",")
+| eval location=mvindex(f,3)
+| stats count by location
+| sort - count
