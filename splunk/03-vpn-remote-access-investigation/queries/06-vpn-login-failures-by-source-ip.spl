@@ -1,0 +1,8 @@
+index=main source="vpn.csv"
+| eval f=split(_raw,",")
+| eval event_type=mvindex(f,2)
+| eval src_ip=mvindex(f,1)
+| search event_type="VPNLoginFailure"
+| stats count by src_ip
+| sort - count
+| head 10
