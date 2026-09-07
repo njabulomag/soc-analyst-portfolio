@@ -15,18 +15,7 @@ This repository showcases my hands-on work in:
 - PowerShell
 - Python
 
-## Repository Structure
 
-```
-📂 microsoft-sentinel
-📂 splunk
-📂 detection-engineering
-📂 incident-response
-📂 mitre-attack
-📂 scripts
-📂 assets
-📂 docs
-```
 
 ## Current Status
 
