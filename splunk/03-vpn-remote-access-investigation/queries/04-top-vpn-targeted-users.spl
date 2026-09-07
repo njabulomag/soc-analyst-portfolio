@@ -1,0 +1,6 @@
+index=main source="vpn.csv"
+| eval f=split(_raw,",")
+| eval user=mvindex(f,10)
+| stats count by user
+| sort - count
+| head 10
