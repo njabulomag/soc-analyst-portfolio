@@ -1,0 +1,2 @@
+index=main source="vpn.csv"
+| timechart span=1h count
