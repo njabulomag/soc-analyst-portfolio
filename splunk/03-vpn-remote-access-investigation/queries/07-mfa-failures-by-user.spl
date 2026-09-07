@@ -1,0 +1,8 @@
+index=main source="vpn.csv"
+| eval f=split(_raw,",")
+| eval event_type=mvindex(f,2)
+| eval user=mvindex(f,10)
+| search event_type="MFAFailure"
+| stats count by user
+| sort - count
+| head 10
